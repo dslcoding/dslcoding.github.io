@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-04-04T13:41:08+08:00</updated><id>/</id><title type="html">DSL’Blog</title><subtitle>我叫董诗磊,我就是一码农.欢迎来到我的博客</subtitle><entry><title type="html">iOS沙盒文件处理</title><link href="/sand-box/" rel="alternate" type="text/html" title="iOS沙盒文件处理" /><published>2017-04-02T11:59:21+08:00</published><updated>2017-04-02T11:59:21+08:00</updated><id>/sand-box</id><content type="html" xml:base="/sand-box/">&lt;p&gt;我最近在做项目的时候会用到关于沙盒的处理，以下是常用的操作：&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-04-04T16:33:32+08:00</updated><id>/</id><title type="html">DSL’Blog</title><subtitle>我叫董诗磊,我就是一码农.欢迎来到我的博客</subtitle><entry><title type="html">iOS沙盒文件处理</title><link href="/sand-box/" rel="alternate" type="text/html" title="iOS沙盒文件处理" /><published>2017-04-02T11:59:21+08:00</published><updated>2017-04-02T11:59:21+08:00</updated><id>/sand-box</id><content type="html" xml:base="/sand-box/">&lt;p&gt;我最近在做项目的时候会用到关于沙盒的处理，以下是常用的操作：&lt;/p&gt;
 
 &lt;h3 id=&quot;1-文件写入操作&quot;&gt;1. 文件写入操作&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;#pragma mark文件写入操作
@@ -242,7 +242,188 @@ self.window.backgroundColor = [UIColor whiteColor];
 因为上面那个方法可能会把系统注册的通知也给移除了，不要这样操纵，一旦出现bug。不容易发现。正确的移除方式是
 [[NSNotificationCenter defaultCenter] removeObserver:self name:@&quot;NSNotificationCenter&quot;object:nil];
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;本篇结束了。。。&lt;/p&gt;</content><summary type="html">开发随手记(一)</summary></entry><entry><title type="html">开发随手记(二)</title><link href="/iOS-note2/" rel="alternate" type="text/html" title="开发随手记(二)" /><published>2017-04-01T11:59:21+08:00</published><updated>2017-04-01T11:59:21+08:00</updated><id>/iOS-note2</id><content type="html" xml:base="/iOS-note2/">&lt;h1 id=&quot;开发随手记二&quot;&gt;开发随手记(二)&lt;/h1&gt;
+&lt;p&gt;本篇结束了。。。&lt;/p&gt;</content><summary type="html">开发随手记(一)</summary></entry><entry><title type="html">使用类别(Category)和扩展(Extension)</title><link href="/Category-Extension/" rel="alternate" type="text/html" title="使用类别(Category)和扩展(Extension)" /><published>2017-04-01T11:59:21+08:00</published><updated>2017-04-01T11:59:21+08:00</updated><id>/Category-Extension</id><content type="html" xml:base="/Category-Extension/">&lt;h1 id=&quot;category-extension&quot;&gt;Category-Extension&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;1类别&quot;&gt;1.类别&lt;/h1&gt;
+&lt;h3 id=&quot;先建立一个类别项目我这里就直接给vc加一个类别名字是nslog记得选category而且category是有m文件的&quot;&gt;先建立一个类别项目，我这里就直接给VC加一个类别。名字是NSLog。记得选Category，而且Category是有.m文件的。&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;http://ac-l1vX02tC.clouddn.com/b76a58836532443c945d.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;http://ac-l1vX02tC.clouddn.com/4171593997bcac5e30eb.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;h1 id=&quot;1先测试&quot;&gt;1.先测试：&lt;/h1&gt;
+&lt;h2 id=&quot;11添加方法&quot;&gt;1.1添加方法&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;//先在.h文件中添加一个方法
+- (void)printStr:(NSString*)str;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;@implementationViewController (NSLog)
+
+//在.m中实现
+
+- (void)printStr:(NSString*)str
+
+{
+
+NSLog(@&quot;====print==%@&quot;,str);
+
+}
+
+@end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;//在VC中调用类别的方法,运行
+
+//[self printStr:@&quot;我叫董诗磊,我就是一码农&quot;];
+
+//成功输出
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;12添加属性&quot;&gt;1.2添加属性&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;@interfaceViewController (NSLog)
+
+//在没有使用runtim建立关联引用建立的字符串
+
+@property(nonatomic,copy)NSString* dsl;
+
+////先添加一个方法
+
+//- (void)printStr:(NSString *)str;
+
+@end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;//在VC中做赋值操作，，，，，然后成功崩溃，
+
+self.dsl=@&quot;我叫董诗磊,我就是一码农&quot;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;崩溃的原因
+&lt;img src=&quot;http://ac-l1vX02tC.clouddn.com/8364ed8677d3c03fa6af.png&quot; alt=&quot;&quot; /&gt;
+不识别set方法。这里就可以说明是可以添加属性，但是不会自动生成get,set方法。不过这里可以使用runtime建立关联。
+如果有这方面的需求可以用runtime具体的下面&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;导入头文件#import &amp;lt;objc/runtime.h&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;.h
+
+@interfaceViewController (NSLog)
+
+//声明属性
+
+@property(nonatomic,copy)NSString* dsl;
+
+@end
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;.m
+
+static NSString*dslKEY =@&quot;dslKEY&quot;;
+
+@implementationViewController (NSLog)
+
+- (void)printStr:(NSString*)str
+
+{
+
+NSLog(@&quot;====print==%@&quot;,str);
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;.m
+
+- (void)setDsl:(NSString*)dsl
+
+{
+
+//四个参数原对象，关联时的用来标记的是哪个属性key(可能要添加多个属性)
+
+objc_setAssociatedObject(self, &amp;amp;dslKEY, dsl,OBJC_ASSOCIATION_COPY);
+
+}
+- (NSString*)dsl
+
+{
+
+returnobjc_getAssociatedObject(self,&amp;amp;dslKEY);
+
+}
+//在VC中测试输出字符串字符串
+
+self.dsl=@&quot;我叫董诗磊,我就是一码农&quot;;
+
+NSLog(@&quot;====use runtime ===%@&quot;,self.dsl);
+
+成功输出
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;以上都是Category添加属性和方法
+我的理解是：&lt;/p&gt;
+
+&lt;h1 id=&quot;11类别就是扩展类可以添加方法不能添加成员变量&quot;&gt;1.1类别就是扩展类可以添加方法。不能添加成员变量。&lt;/h1&gt;
+
+&lt;h3 id=&quot;12如果添加property的话编译是没有问题但是运行的时候就会报错的也可以用runtime来关联引用实现添加属性&quot;&gt;1.2如果添加@property的话编译是没有问题。但是运行的时候就会报错的。也可以用runtime来关联引用实现添加属性。&lt;/h3&gt;
+
+&lt;h3 id=&quot;13如果类别的方法和原类的方法名重复的话优先调用类别的方法原类的犯法会忽略尽量别这样&quot;&gt;1.3如果类别的方法和原类的方法名重复的话，优先调用类别的方法。原类的犯法会忽略。尽量别这样&lt;/h3&gt;
+
+&lt;h3 id=&quot;14继承和类别&quot;&gt;1.4继承和类别&lt;/h3&gt;
+
+&lt;h3 id=&quot;141关于继承和类别我的理解是如果这个类有很多子类的时候只需要扩展这个类不影响到原有的代码继承较好要是紧紧扩展方法的话分类更好&quot;&gt;1.4.1关于继承和类别我的理解是如果这个类有很多子类的时候，只需要扩展这个类不影响到原有的代码继承较好，要是紧紧扩展方法的话，分类更好。&lt;/h3&gt;
+&lt;h3 id=&quot;142类别主要是针对系统提供的一些类系统本身是不提供继承去扩展方法的继承子类继承父类而类别不能扩展属性runtime可以方法也不能重复一旦重复就会替换原有的方法没了&quot;&gt;1.4.2类别主要是针对系统提供的一些类，系统本身是不提供继承去扩展方法的。继承子类继承父类，而类别不能扩展属性(runtime可以)，方法也不能重复，一旦重复。就会替换原有的方法。没了&lt;/h3&gt;
+&lt;hr /&gt;
+&lt;h1 id=&quot;2扩展&quot;&gt;2.扩展&lt;/h1&gt;
+
+&lt;h1 id=&quot;扩展是类别的一种特例也是匿名类可以声明属性和方法声明的方法要实现&quot;&gt;扩展是类别的一种特例。也是匿名类，可以声明属性和方法，声明的方法要实现&lt;/h1&gt;
+
+&lt;h3 id=&quot;21先测试给vc加extension&quot;&gt;2.1先测试给VC加Extension&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;http://ac-l1vX02tC.clouddn.com/8fe3dce41b2b974be9fd.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;http://ac-l1vX02tC.clouddn.com/55f2357045a9e0e3a59b.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;实现方法1就是上面的那一种建立一个extensionh文件然后声明&quot;&gt;实现方法1.就是上面的那一种，建立一个Extension.h文件然后声明&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;#import&quot;ViewController.h&quot;
+
+@interfaceViewController ()
+
+@property(nonatomic,copy) NSString * vcExten;
+
+- (void)test;
+
+@end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;- (void)viewDidLoad {
+
+[self test];
+
+//扩展在ViewDidLoad里面实现并调试
+
+self.vcExten=@&quot;exten&quot;;
+
+NSLog(@&quot;====use exten ==%@&quot;,self.vcExten);
+
+}
+
+- (void)test
+
+{
+
+NSLog(@&quot;extension===&quot;);
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;实现方法2就是上面的那一种建立一个extensionh文件然后声明&quot;&gt;实现方法2.就是上面的那一种，建立一个Extension.h文件然后声明&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;#import&quot;ViewController.h&quot;
+
+#import&quot;ViewController+NSLog.h&quot;
+
+#import&quot;ViewController_VCExten.h&quot;
+
+这个@interface ......@end本身就是扩展
+
+@interfaceViewController()
+
+@end
+
+@implementationViewController
+
+- (void)viewDidLoad {
+
+[superviewDidLoad];
+
+
+
+}
+&lt;/code&gt;&lt;/pre&gt;</content><summary type="html">Category-Extension</summary></entry><entry><title type="html">开发随手记(二)</title><link href="/iOS-note2/" rel="alternate" type="text/html" title="开发随手记(二)" /><published>2017-04-01T11:59:21+08:00</published><updated>2017-04-01T11:59:21+08:00</updated><id>/iOS-note2</id><content type="html" xml:base="/iOS-note2/">&lt;h1 id=&quot;开发随手记二&quot;&gt;开发随手记(二)&lt;/h1&gt;
 
 &lt;hr /&gt;
 
@@ -255,7 +436,7 @@ self.window.backgroundColor = [UIColor whiteColor];
 &lt;p&gt;2.Code Sign error: Provisioning profile does not match bundle identifier: The provisioning profile specified in your build settings (“ColorKey Distribution”) has an AppID of “com.iAppsLLC.ColorKey” which does not match your bundle identifier “ com.iAppsLLC.ColorKey.MyKeyBoard”.
 解决方法是：在build Settings 里有一项 Packaging项  里边有个Product Bundle Identifier  需要与plist文件里的Bundle Identifier 保持一致。最后修改完成以后clean一下充跑吧。如果证书，App ID ，以及描述文件没有设置错误，那就应该没有问题了。&lt;/p&gt;
 
-&lt;p&gt;3.因为有些第三方库不支持bitcode。 关闭BItcode&lt;/p&gt;</content><summary type="html">开发随手记(二)</summary></entry><entry><title type="html">关于Today Extension</title><link href="/Today-Extension/" rel="alternate" type="text/html" title="关于Today Extension" /><published>2016-09-02T11:59:21+08:00</published><updated>2016-09-02T11:59:21+08:00</updated><id>/Today-Extension</id><content type="html" xml:base="/Today-Extension/">&lt;h1 id=&quot;关于today-extension&quot;&gt;关于Today Extension&lt;/h1&gt;
+&lt;p&gt;3.因为有些第三方库不支持bitcode。 关闭BItcode&lt;/p&gt;</content><summary type="html">开发随手记(二)</summary></entry><entry><title type="html">关于Today Extension</title><link href="/today-extension/" rel="alternate" type="text/html" title="关于Today Extension" /><published>2016-09-02T11:59:21+08:00</published><updated>2016-09-02T11:59:21+08:00</updated><id>/today-extension</id><content type="html" xml:base="/today-extension/">&lt;h1 id=&quot;关于today-extension&quot;&gt;关于Today Extension&lt;/h1&gt;
 
 &lt;p&gt;第一次写Extension功能，下面是我的一些步骤。这是对&lt;a href=&quot;https://developer.apple.com/library/content/documentation/General/Conceptual/ExtensibilityPG/&quot;&gt;iOS App Extension Programming Guide&lt;/a&gt;的链接。&lt;/p&gt;
 
@@ -536,6 +717,6 @@ completionHandler(NCUpdateResultNewData);
 
 &lt;p&gt;本次关于Today Extension之旅结束。随后补充。有错请立即通知我，谢谢。&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;_posts/2017-04-03-sand-box.md&quot;&gt;dd&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://127.0.0.1:4000/today-extension/&quot;&gt;dd&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;我叫董诗磊我就是一码农。&lt;/p&gt;</content><summary type="html">关于Today Extension</summary></entry></feed>
