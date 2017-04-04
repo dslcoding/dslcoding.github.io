@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-04-04T10:59:55+08:00</updated><id>/</id><title type="html">DSL’Blog</title><subtitle>Moon is a minimal, one column jekyll theme for your blog.</subtitle><entry><title type="html">iOS沙盒文件处理</title><link href="/sand-box/" rel="alternate" type="text/html" title="iOS沙盒文件处理" /><published>2017-04-02T11:59:21+08:00</published><updated>2017-04-02T11:59:21+08:00</updated><id>/sand-box</id><content type="html" xml:base="/sand-box/">&lt;p&gt;我最近在做项目的时候会用到关于沙盒的处理，以下是常用的操作：&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-04-04T13:41:08+08:00</updated><id>/</id><title type="html">DSL’Blog</title><subtitle>我叫董诗磊,我就是一码农.欢迎来到我的博客</subtitle><entry><title type="html">iOS沙盒文件处理</title><link href="/sand-box/" rel="alternate" type="text/html" title="iOS沙盒文件处理" /><published>2017-04-02T11:59:21+08:00</published><updated>2017-04-02T11:59:21+08:00</updated><id>/sand-box</id><content type="html" xml:base="/sand-box/">&lt;p&gt;我最近在做项目的时候会用到关于沙盒的处理，以下是常用的操作：&lt;/p&gt;
 
 &lt;h3 id=&quot;1-文件写入操作&quot;&gt;1. 文件写入操作&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;#pragma mark文件写入操作
@@ -246,10 +246,6 @@ self.window.backgroundColor = [UIColor whiteColor];
 
 &lt;hr /&gt;
 
-&lt;h1 id=&quot;开发随手记二-1&quot;&gt;开发随手记(二)&lt;/h1&gt;
-
-&lt;hr /&gt;
-
 &lt;h1 id=&quot;在项目中积累中的错误&quot;&gt;在项目中积累中的错误&lt;/h1&gt;
 
 &lt;p&gt;1.ld: can’t link with a main executable file ‘/Users/apple/Library/Developer/Xcode/DerivedData/LePaiDemo-ftsuwgzvjdjwzghgkuefbzvdkvey/Build/Products/Debug-iphoneos/LePaiDemo.app/LePaiDemo’ for architecture armv7clang: error: unable to execute command: Segmentation fault: 11clang: error: linker command failed due to signal (use -v to see invocation)
@@ -259,4 +255,287 @@ self.window.backgroundColor = [UIColor whiteColor];
 &lt;p&gt;2.Code Sign error: Provisioning profile does not match bundle identifier: The provisioning profile specified in your build settings (“ColorKey Distribution”) has an AppID of “com.iAppsLLC.ColorKey” which does not match your bundle identifier “ com.iAppsLLC.ColorKey.MyKeyBoard”.
 解决方法是：在build Settings 里有一项 Packaging项  里边有个Product Bundle Identifier  需要与plist文件里的Bundle Identifier 保持一致。最后修改完成以后clean一下充跑吧。如果证书，App ID ，以及描述文件没有设置错误，那就应该没有问题了。&lt;/p&gt;
 
-&lt;p&gt;3.因为有些第三方库不支持bitcode。 关闭BItcode&lt;/p&gt;</content><summary type="html">开发随手记(二)</summary></entry></feed>
+&lt;p&gt;3.因为有些第三方库不支持bitcode。 关闭BItcode&lt;/p&gt;</content><summary type="html">开发随手记(二)</summary></entry><entry><title type="html">关于Today Extension</title><link href="/Today-Extension/" rel="alternate" type="text/html" title="关于Today Extension" /><published>2016-09-02T11:59:21+08:00</published><updated>2016-09-02T11:59:21+08:00</updated><id>/Today-Extension</id><content type="html" xml:base="/Today-Extension/">&lt;h1 id=&quot;关于today-extension&quot;&gt;关于Today Extension&lt;/h1&gt;
+
+&lt;p&gt;第一次写Extension功能，下面是我的一些步骤。这是对&lt;a href=&quot;https://developer.apple.com/library/content/documentation/General/Conceptual/ExtensibilityPG/&quot;&gt;iOS App Extension Programming Guide&lt;/a&gt;的链接。&lt;/p&gt;
+
+&lt;p&gt;效果图
+ &lt;img src=&quot;http://ac-l1vX02tC.clouddn.com/96a2456ba7b86754dd5f.gif&quot; alt=&quot;1.效果图&quot; /&gt;
+ 最近写了一个app需要用到app扩展(App Extension)，本次主要讲的是TodayExtension这个扩展，&lt;a href=&quot;https://developer.apple.com/library/content/documentation/General/Conceptual/ExtensibilityPG/Today.html&quot;&gt;关于Toady的官方介绍自己先看&lt;/a&gt;，废话不多说直接写代码，既然写了那就从申请appID开始：&lt;/p&gt;
+&lt;h1 id=&quot;1先新建一个项目&quot;&gt;1.先新建一个项目&lt;/h1&gt;
+&lt;h3 id=&quot;2申请id&quot;&gt;2.申请ID：&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;http://ac-l1vX02tC.clouddn.com/7f3efb74e794561cdf4d.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;http://ac-l1vX02tC.clouddn.com/80b8867cba66a1929a0f.png&quot; alt=&quot;&quot; /&gt;
+然后点击注册完成；&lt;/p&gt;
+&lt;h3 id=&quot;3申请app-groups&quot;&gt;3.申请App Groups&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;http://ac-l1vX02tC.clouddn.com/1cb58b390dbb5deb4c54.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;http://ac-l1vX02tC.clouddn.com/7275b2a6a7bdb69170c3.png&quot; alt=&quot;&quot; /&gt;
+然后点击继续按钮，在点击注册，就会出现以下界面
+&lt;img src=&quot;http://ac-l1vX02tC.clouddn.com/ee405194982e3324bdaf.png&quot; alt=&quot;&quot; /&gt;
+去iOSAppIDS这个界面找到Name为：BlobBlobWidget的ID，点击编辑
+然后
+&lt;img src=&quot;http://ac-l1vX02tC.clouddn.com/76f3046f289180ed7307.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;http://ac-l1vX02tC.clouddn.com/caad348a05a49cd01ab5.png&quot; alt=&quot;&quot; /&gt;
+点击assign就可以了&lt;/p&gt;
+&lt;h3 id=&quot;4找到id发现下面都变绿说明配置成功了如果不是的话估计你得重复在来一次&quot;&gt;4.找到ID发现下面都变绿说明配置成功了，如果不是的话，估计你得重复在来一次&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;http://ac-l1vX02tC.clouddn.com/c75d1f73f2e4dce09b9c.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;h1 id=&quot;2开始代码项目中的配置&quot;&gt;2.开始代码项目中的配置&lt;/h1&gt;
+&lt;h3 id=&quot;21新建扩展&quot;&gt;2.1新建扩展&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;http://ac-l1vX02tC.clouddn.com/cb99dbd24f51d209b728.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;22先配置general&quot;&gt;2.2先配置General&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;http://ac-l1vX02tC.clouddn.com/70afb2a17787624f1467.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;23在配置capabilities&quot;&gt;2.3在配置Capabilities&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;http://ac-l1vX02tC.clouddn.com/b9e3044909cad2ef2d2a.png&quot; alt=&quot;&quot; /&gt;
+好了以上是宿主app也就是主app配置完成。&lt;/p&gt;
+&lt;h1 id=&quot;6下面配置todayextension&quot;&gt;6.下面配置TodayExtension&lt;/h1&gt;
+&lt;h3 id=&quot;61配置general&quot;&gt;6.1配置General&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;http://ac-l1vX02tC.clouddn.com/34945dd01ed65a48043d.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;62配置capabilities&quot;&gt;6.2配置Capabilities&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;http://ac-l1vX02tC.clouddn.com/90631f921812fc0525ee.png&quot; alt=&quot;&quot; /&gt;
+以上都配置完了运行以下，正常了就是正常的，不正常就是不正常了，顺便自己看看哪里出的问题，bug在哪里自己心里最清楚，别人都是爱莫能助啊。&lt;/p&gt;
+&lt;h1 id=&quot;7关于调试&quot;&gt;7.关于调试&lt;/h1&gt;
+&lt;p&gt;在调试的时候xcode会弹出一个调试框框，让你选择一个主APP。主APP就是要选择你建立的APP；不知道看懂没有。&lt;/p&gt;
+&lt;h1 id=&quot;8数据的共享&quot;&gt;8数据的共享&lt;/h1&gt;
+
+&lt;h3 id=&quot;81通过用nsuserdefaults共享数据&quot;&gt;8.1通过用NSUserDefaults共享数据&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;存储：
+
+#pragma mark存储data
+
+- (void)saveData:(UITextField*)TF{
+
+NSUserDefaults* defaults = [[NSUserDefaultsalloc]initWithSuiteName:@&quot;group.DSLBlobWidget&quot;];
+
+[defaultssetObject:TF.textforKey:@&quot;DSL&quot;];
+
+[defaultssynchronize];
+
+}
+获取：
+
+#pragma mark从app那里加载数据以便达到数据共享的目的
+
+- (NSString*)getDatafromMainAPP{
+
+NSUserDefaults*defaults = [[NSUserDefaultsalloc]initWithSuiteName:@&quot;group.DSLBlobWidget&quot;];
+
+return[defaultsobjectForKey:@&quot;DSL&quot;];
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;82通过nsfilemanger存图片&quot;&gt;8.2通过NSFileManger存图片&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;//copy image to Library
+
+- (void)copyImageToLibrary{
+
+NSString * path = [[NSBundle mainBundle]pathForResource:@&quot;DSL.png&quot; ofType:nil];
+
+NSFileManager * manger = [NSFileManager defaultManager];
+
+NSString * documentPath = [NSHomeDirectory() stringByAppendingPathComponent:@&quot;/Library/Caches/DSL.png&quot;];
+
+NSLog(@&quot;%@&quot;,documentPath);
+
+NSError * error = nil;
+
+if (path != nil) {
+
+if (![manger fileExistsAtPath:documentPath]) {
+
+[manger copyItemAtPath:path toPath:documentPath error:&amp;amp;error];
+
+if (error) {
+
+NSLog(@&quot;==copy error==%@&quot;,[error
+
+localizedDescription]);
+
+}
+
+}
+
+}else{
+
+NSLog(@&quot;sourcePath is nil&quot;);
+
+}
+
+[self copyImage];
+
+}
+
+#pragma mark从app那里加载数据以便达到数据共享的目的（NSFileManger 存图片）
+
+- (void)copyImage{
+
+NSError * error = nil;
+
+NSURL * contentURL = [[NSFileManager defaultManager]containerURLForSecurityApplicationGroupIdentifier:@&quot;group.DSLBlobWidget&quot;];
+
+NSString * newPath = [contentURL URLByAppendingPathComponent:@&quot;/Library/Caches/DSL.png&quot;].path;
+
+[[NSFileManager
+
+defaultManager]copyItemAtPath:[NSHomeDirectory()
+
+stringByAppendingPathComponent:@&quot;/Library/Caches/DSL.png&quot;]
+
+toPath:newPath error:&amp;amp;error];
+
+if (error) {
+
+NSLog(@&quot;copy error==%@&quot;,[error localizedDescription]);
+
+}
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&quot;9代码的共享&quot;&gt;9.代码的共享&lt;/h1&gt;
+
+&lt;h3 id=&quot;91第一步和创建app-extension一样new-target选择cocoa-touch-framework来创建framework&quot;&gt;9.1第一步：和创建APP Extension一样，New-&amp;gt;Target，选择Cocoa Touch Framework来创建framework&lt;/h3&gt;
+
+&lt;h3 id=&quot;92第二部起名字我的起的名字是dslwidgetframework&quot;&gt;9.2第二部：起名字，我的起的名字是DSLWidgetFramework&lt;/h3&gt;
+
+&lt;h3 id=&quot;93&quot;&gt;9.3&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;http://ac-l1vX02tC.clouddn.com/02a4f537451a8f98f257.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;h1 id=&quot;10在app-extension中不能使用的api&quot;&gt;10.在APP Extension中不能使用的API&lt;/h1&gt;
+&lt;h3 id=&quot;101-access-a-sharedapplication-object-and-so-cannot-use-any-of-the-methods-on-that-object&quot;&gt;10.1 Access a sharedApplication object, and so cannot use any of the methods on that object&lt;/h3&gt;
+&lt;p&gt;不能获取sharedApplication对象&lt;/p&gt;
+
+&lt;h3 id=&quot;102use-any-api-marked-in-header-files-with-thens_extension_unavailablemacro-or-similar-unavailability-macro-or-any-api-in-an-unavailable-frameworkfor-example-in-ios-80-the-healthkit-framework-and-eventkit-ui-framework-are-unavailable-to-app-extensions&quot;&gt;10.2Use any API marked in header files with theNS_EXTENSION_UNAVAILABLEmacro, or similar unavailability macro, or any API in an unavailable framework，For example, in iOS 8.0, the HealthKit framework and EventKit UI framework are unavailable to app extensions.&lt;/h3&gt;
+
+&lt;p&gt;不能使用API的标志性头文件 和 theNS_EXTENSION_UNAVAILABLE 宏定义，还有一些不能用的框架API,例如HealthKit framework and EventKit UI framework。&lt;/p&gt;
+
+&lt;h3 id=&quot;103access-the-camera-or-microphone-on-an-ios-device-an-imessage-app-unlike-other-app-extensions-does-have-access-to-these-resources-as-long-as-it-correctly-configures-thenscamerausagedescriptionandnsmicrophoneusagedescriptioninfoplistkeys&quot;&gt;10.3Access the camera or microphone on an iOS device (an iMessage app, unlike other app extensions, does have access to these resources, as long as it correctly configures theNSCameraUsageDescriptionandNSMicrophoneUsageDescriptionInfo.plistkeys)&lt;/h3&gt;
+
+&lt;p&gt;不能获取麦克风和照相机的权限(iMessage 不同于其它的应用扩展，只要配置相关的应用权限就可以直接使用了)&lt;/p&gt;
+
+&lt;h3 id=&quot;104perform-long-running-background-tasks&quot;&gt;10.4Perform long-running background tasks&lt;/h3&gt;
+
+&lt;p&gt;不能长期的在后台运行&lt;/p&gt;
+
+&lt;h3 id=&quot;105receive-data-using-airdrop&quot;&gt;10.5Receive data using AirDrop&lt;/h3&gt;
+
+&lt;p&gt;不能使用AirDrop接收相关的数据&lt;/p&gt;
+
+&lt;p&gt;以上个人翻译，建议&lt;a href=&quot;https://developer.apple.com/library/content/documentation/General/Conceptual/ExtensibilityPG/ExtensionOverview.html#//apple_ref/doc/uid/TP40014214-CH2-SW6&quot;&gt;查看官方文档&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;11-todayextension的进入设置的快捷方式&quot;&gt;11 .TodayExtension的进入设置的快捷方式&lt;/h1&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;//打开Wi-Fi
+
+[self.extensionContextopenURL:[NSURLURLWithString:@&quot;Prefs:root=WIFI&quot;]completionHandler:^(BOOLsuccess) {
+
+}];
+//打开蜂窝网络
+
+[self.extensionContextopenURL:[NSURLURLWithString:@&quot;Prefs:root=MOBILE_DATA_SETTINGS_ID&quot;]completionHandler:^(BOOLsuccess) {
+
+}];
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/cyanzhong/app-tutorials/blob/master/prefs.md&quot;&gt;更多方式请点击这里,请尽量按照以上方式避免被拒绝.&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;12与主app的交互&quot;&gt;12.与主APP的交互&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&quot;http://ac-l1vX02tC.clouddn.com/9b23ab7bdf2069aa01df.png&quot; alt=&quot;&quot; /&gt;
+在扩展中的代码：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;- (void)OpenAcstion{
+
+[self.extensionContextopenURL:[NSURLURLWithString:@&quot;DSLTodayWidget://SecondVC&quot;]completionHandler:^(BOOLsuccess) {
+
+}];
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在主APP中的代码：
+AppDelegate&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;- (BOOL)application:(UIApplication*)app openURL:(NSURL*)url options:(NSDictionary *)options
+
+{
+
+NSLog(@&quot;=====%@&quot;,url.scheme);
+
+NSLog(@&quot;===%@===%@&quot;,url.host,url.absoluteString);
+
+if([url.absoluteStringhasPrefix:@&quot;DSLTodayWidget&quot;]) {
+
+if([url.hostisEqualToString:@&quot;SecondVC&quot;]) {
+
+//判断是否是直接跳入到添加页面
+
+//self.window.rootViewController = [[SecondVC alloc]init];
+
+UIViewController*rootNav = (UIViewController*)self.window.rootViewController;
+
+[rootNavpresentViewController:[[SecondVCalloc]init]animated:YEScompletion:nil];
+
+}
+
+}
+
+returnYES;
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&quot;13折叠与展开&quot;&gt;13.折叠与展开&lt;/h1&gt;
+
+&lt;h3 id=&quot;131首先折叠与展开只有ios10才有所以先要判断系统的版本&quot;&gt;13.1首先折叠与展开只有iOS10才有，所以先要判断系统的版本&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;if ([[UIDevice currentDevice].systemVersion integerValue]&amp;gt;=10) {
+
+self.extensionContext.widgetLargestAvailableDisplayMode = NCWidgetDisplayModeExpanded;
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;然后实现协议，点击展开或者是折叠会触发这个协议就是NCWidgetProviding协议&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;- (void)widgetActiveDisplayModeDidChange:(NCWidgetDisplayMode)activeDisplayMode withMaximumSize:(CGSize)maxSize
+
+{
+
+//    NCWidgetDisplayModeCompact, // Fixed height
+
+//    NCWidgetDisplayModeExpanded,
+
+if (activeDisplayMode == NCWidgetDisplayModeCompact ) {
+
+//高度最低为110
+
+self.preferredContentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width ,110);
+
+}else{
+
+//因为机子型号不一样所以最大搞多可能不一样，这里设置最大
+
+self.preferredContentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width ,MAXFLOAT);
+
+}
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;除了上面的协议外还有一个协议就是更新扩展UI界面的协议&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;该协议的具体用法，我没有探究，需要更新这个界面的时候就在这方法里面写
+
+- (void)widgetPerformUpdateWithCompletionHandler:(void (^)(NCUpdateResult))completionHandler {
+
+// Perform any setup necessary in order to update the view.
+
+// If an error is encountered, use NCUpdateResultFailed
+
+// If there's no update required, use NCUpdateResultNoData
+
+// If there's an update, use NCUpdateResultNewData
+
+completionHandler(NCUpdateResultNewData);
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&quot;14关于使用storyboard或者是代码&quot;&gt;14.关于使用StoryBoard或者是代码&lt;/h1&gt;
+
+&lt;h3 id=&quot;141使用stryboard如果使用自己定义的类的storyboard的话需要修改info文件&quot;&gt;14.1使用StryBoard如果使用自己定义的类的StoryBoard的话，需要修改info文件&lt;/h3&gt;
+
+&lt;h3 id=&quot;142&quot;&gt;14.2&lt;img src=&quot;http://ac-l1vX02tC.clouddn.com/c08223452b889dbf901b.png&quot; alt=&quot;&quot; /&gt;&lt;/h3&gt;
+&lt;p&gt;使用这个方法不要忘记在todayViewController的ViewDidLoad中设置preferredContentSize属性调整大小。
+14关于上架，上架的时候扩展app一定是单独的appID，且命名时比如：主appID是com.DSLWidget那么扩展appID是com.DSLWidget.widExten这样尽量按照这个格式来，不要问我为什么之前上架踩过的坑&lt;/p&gt;
+
+&lt;p&gt;本次关于Today Extension之旅结束。随后补充。有错请立即通知我，谢谢。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;_posts/2017-04-03-sand-box.md&quot;&gt;dd&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;我叫董诗磊我就是一码农。&lt;/p&gt;</content><summary type="html">关于Today Extension</summary></entry></feed>

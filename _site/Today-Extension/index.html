@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--><!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]--><!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]--><!--[if gt IE 8]><!--><html class="no-js">
+<!--<![endif]--> <head> <meta charset="UTF-8"> <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"> <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <title>关于Today Extension – DSL'Blog</title> <meta name="description" content="我叫董诗磊,我就是一码农.欢迎来到我的博客"> <meta name="keywords" content=""> <!-- Twitter Cards --> <meta name="twitter:card" content="summary"> <meta name="twitter:image" content="/assets/img/logo.png"> <meta name="twitter:title" content="关于Today Extension"> <meta name="twitter:description" content="关于Today Extension"> <meta name="twitter:site" content="@username"> <meta name="twitter:creator" content="@username"> <!-- Open Graph --> <meta property="og:locale" content="en_US"> <meta property="og:type" content="article"> <meta property="og:title" content="关于Today Extension"> <meta property="og:description" content="关于Today Extension"> <meta property="og:url" content="/Today-Extension/"> <meta property="og:site_name" content="DSL'Blog"> <meta property="og:image" content="/assets/img/logo.png"> <link rel="canonical" href="/Today-Extension/"> <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="DSL'Blog Feed"> <!-- Handheld --> <meta name="HandheldFriendly" content="True"> <meta name="MobileOptimized" content="320"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- CSS --> <link rel="stylesheet" href="/assets/css/main.css"> <!-- JS --> <script src="/assets/js/modernizr-3.3.1.custom.min.js"></script> <!-- Favicons --> <link rel="apple-touch-icon" href="/assets/img/favicons/apple-icon-precomposed.png"> <link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicons/apple-icon-72x72.png"> <link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicons/apple-icon-114x114.png"> <link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicons/apple-icon-144x144.png"> <link rel="shortcut icon" type="image/png" href="/favicon.png"> <link rel="shortcut icon" href="/favicon.ico"> <!-- Background Image --> <style type="text/css">body {background-image:url(/assets/img/placeholder-big.jpg); background-repeat: no-repeat; background-size: cover; }</style> <!-- Post Feature Image --> </head> <body> <nav id="dl-menu" class="dl-menuwrapper" role="navigation"> <button class="dl-trigger">Open Menu</button> <ul class="dl-menu"> <li><a href="/">Home</a></li> <li> <a href="#">About</a> <ul class="dl-submenu"> <li> <img src="/assets/img/logo.png" alt="DSL'Blog photo" class="author-photo"> <h4>DSL'Blog</h4> <p>我叫董诗磊,我就是一码农.欢迎来到我的博客</p> </li> <li><a href="/about/"><span class="btn btn-inverse">Learn More</span></a></li> <li> <a href="http://twitter.com/username" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-twitter-square"></i> Twitter</a> </li> <li> <a href="http://facebook.com/username" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook-square"></i> Facebook</a> </li> <li> <a href="http://instagram.com/username" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-instagram"></i> Instagram</a> </li> <li> <a href="http://github.com/username" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i> Github</a> </li> <li> <a href="http://steamcommunity.com/id/username" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-steam-square"></i> Steam</a> </li> </ul>
+<!-- /.dl-submenu --> </li> <li> <a href="#">Posts</a> <ul class="dl-submenu"> <li><a href="/posts/">All Posts</a></li> <li><a href="/tags/">All Tags</a></li> </ul> </li> <li><a href="/projects/">Projects</a></li> </ul>
+<!-- /.dl-menu --> </nav><!-- /.dl-menuwrapper --> <!-- Header --> <header class="header" role="banner"> <div class="wrapper animated fadeIn"> <div class="content"> <div class="post-title "> <h1>关于Today Extension</h1> <h4>02 Sep 2016</h4> <p class="reading-time"> <i class="fa fa-clock-o"></i> Reading time ~2 minutes </p>
+<!-- /.entry-reading-time --> <a class="btn zoombtn" href="/posts/"> <i class="fa fa-chevron-left"></i> </a> </div> <h1 id="关于today-extension">关于Today Extension</h1> <p>第一次写Extension功能，下面是我的一些步骤。这是对<a href="https://developer.apple.com/library/content/documentation/General/Conceptual/ExtensibilityPG/">iOS App Extension Programming Guide</a>的链接。</p> <p>效果图 <img src="http://ac-l1vX02tC.clouddn.com/96a2456ba7b86754dd5f.gif" alt="1.效果图"> 最近写了一个app需要用到app扩展(App Extension)，本次主要讲的是TodayExtension这个扩展，<a href="https://developer.apple.com/library/content/documentation/General/Conceptual/ExtensibilityPG/Today.html">关于Toady的官方介绍自己先看</a>，废话不多说直接写代码，既然写了那就从申请appID开始：</p> <h1 id="1先新建一个项目">1.先新建一个项目</h1> <h3 id="2申请id">2.申请ID：</h3> <p><img src="http://ac-l1vX02tC.clouddn.com/7f3efb74e794561cdf4d.png" alt=""> <img src="http://ac-l1vX02tC.clouddn.com/80b8867cba66a1929a0f.png" alt=""> 然后点击注册完成；</p> <h3 id="3申请app-groups">3.申请App Groups</h3> <p><img src="http://ac-l1vX02tC.clouddn.com/1cb58b390dbb5deb4c54.png" alt=""> <img src="http://ac-l1vX02tC.clouddn.com/7275b2a6a7bdb69170c3.png" alt=""> 然后点击继续按钮，在点击注册，就会出现以下界面 <img src="http://ac-l1vX02tC.clouddn.com/ee405194982e3324bdaf.png" alt=""> 去iOSAppIDS这个界面找到Name为：BlobBlobWidget的ID，点击编辑 然后 <img src="http://ac-l1vX02tC.clouddn.com/76f3046f289180ed7307.png" alt=""> <img src="http://ac-l1vX02tC.clouddn.com/caad348a05a49cd01ab5.png" alt=""> 点击assign就可以了</p> <h3 id="4找到id发现下面都变绿说明配置成功了如果不是的话估计你得重复在来一次">4.找到ID发现下面都变绿说明配置成功了，如果不是的话，估计你得重复在来一次</h3> <p><img src="http://ac-l1vX02tC.clouddn.com/c75d1f73f2e4dce09b9c.png" alt=""></p> <h1 id="2开始代码项目中的配置">2.开始代码项目中的配置</h1> <h3 id="21新建扩展">2.1新建扩展</h3> <p><img src="http://ac-l1vX02tC.clouddn.com/cb99dbd24f51d209b728.png" alt=""></p> <h3 id="22先配置general">2.2先配置General</h3> <p><img src="http://ac-l1vX02tC.clouddn.com/70afb2a17787624f1467.png" alt=""></p> <h3 id="23在配置capabilities">2.3在配置Capabilities</h3> <p><img src="http://ac-l1vX02tC.clouddn.com/b9e3044909cad2ef2d2a.png" alt=""> 好了以上是宿主app也就是主app配置完成。</p> <h1 id="6下面配置todayextension">6.下面配置TodayExtension</h1> <h3 id="61配置general">6.1配置General</h3> <p><img src="http://ac-l1vX02tC.clouddn.com/34945dd01ed65a48043d.png" alt=""></p> <h3 id="62配置capabilities">6.2配置Capabilities</h3> <p><img src="http://ac-l1vX02tC.clouddn.com/90631f921812fc0525ee.png" alt=""> 以上都配置完了运行以下，正常了就是正常的，不正常就是不正常了，顺便自己看看哪里出的问题，bug在哪里自己心里最清楚，别人都是爱莫能助啊。</p> <h1 id="7关于调试">7.关于调试</h1> <p>在调试的时候xcode会弹出一个调试框框，让你选择一个主APP。主APP就是要选择你建立的APP；不知道看懂没有。</p> <h1 id="8数据的共享">8数据的共享</h1> <h3 id="81通过用nsuserdefaults共享数据">8.1通过用NSUserDefaults共享数据</h3>
+<pre><code class="language-Objective-C">存储：
+
+#pragma mark存储data
+
+- (void)saveData:(UITextField*)TF{
+
+NSUserDefaults* defaults = [[NSUserDefaultsalloc]initWithSuiteName:@"group.DSLBlobWidget"];
+
+[defaultssetObject:TF.textforKey:@"DSL"];
+
+[defaultssynchronize];
+
+}
+获取：
+
+#pragma mark从app那里加载数据以便达到数据共享的目的
+
+- (NSString*)getDatafromMainAPP{
+
+NSUserDefaults*defaults = [[NSUserDefaultsalloc]initWithSuiteName:@"group.DSLBlobWidget"];
+
+return[defaultsobjectForKey:@"DSL"];
+
+}
+</code></pre>
+<h3 id="82通过nsfilemanger存图片">8.2通过NSFileManger存图片</h3>
+<pre><code class="language-Objective-C">//copy image to Library
+
+- (void)copyImageToLibrary{
+
+NSString * path = [[NSBundle mainBundle]pathForResource:@"DSL.png" ofType:nil];
+
+NSFileManager * manger = [NSFileManager defaultManager];
+
+NSString * documentPath = [NSHomeDirectory() stringByAppendingPathComponent:@"/Library/Caches/DSL.png"];
+
+NSLog(@"%@",documentPath);
+
+NSError * error = nil;
+
+if (path != nil) {
+
+if (![manger fileExistsAtPath:documentPath]) {
+
+[manger copyItemAtPath:path toPath:documentPath error:&amp;error];
+
+if (error) {
+
+NSLog(@"==copy error==%@",[error
+
+localizedDescription]);
+
+}
+
+}
+
+}else{
+
+NSLog(@"sourcePath is nil");
+
+}
+
+[self copyImage];
+
+}
+
+#pragma mark从app那里加载数据以便达到数据共享的目的（NSFileManger 存图片）
+
+- (void)copyImage{
+
+NSError * error = nil;
+
+NSURL * contentURL = [[NSFileManager defaultManager]containerURLForSecurityApplicationGroupIdentifier:@"group.DSLBlobWidget"];
+
+NSString * newPath = [contentURL URLByAppendingPathComponent:@"/Library/Caches/DSL.png"].path;
+
+[[NSFileManager
+
+defaultManager]copyItemAtPath:[NSHomeDirectory()
+
+stringByAppendingPathComponent:@"/Library/Caches/DSL.png"]
+
+toPath:newPath error:&amp;error];
+
+if (error) {
+
+NSLog(@"copy error==%@",[error localizedDescription]);
+
+}
+
+}
+</code></pre>
+<h1 id="9代码的共享">9.代码的共享</h1> <h3 id="91第一步和创建app-extension一样new-target选择cocoa-touch-framework来创建framework">9.1第一步：和创建APP Extension一样，New-&gt;Target，选择Cocoa Touch Framework来创建framework</h3> <h3 id="92第二部起名字我的起的名字是dslwidgetframework">9.2第二部：起名字，我的起的名字是DSLWidgetFramework</h3> <h3 id="93">9.3</h3> <p><img src="http://ac-l1vX02tC.clouddn.com/02a4f537451a8f98f257.png" alt=""></p> <h1 id="10在app-extension中不能使用的api">10.在APP Extension中不能使用的API</h1> <h3 id="101-access-a-sharedapplication-object-and-so-cannot-use-any-of-the-methods-on-that-object">10.1 Access a sharedApplication object, and so cannot use any of the methods on that object</h3> <p>不能获取sharedApplication对象</p> <h3 id="102use-any-api-marked-in-header-files-with-thens_extension_unavailablemacro-or-similar-unavailability-macro-or-any-api-in-an-unavailable-frameworkfor-example-in-ios-80-the-healthkit-framework-and-eventkit-ui-framework-are-unavailable-to-app-extensions">10.2Use any API marked in header files with theNS_EXTENSION_UNAVAILABLEmacro, or similar unavailability macro, or any API in an unavailable framework，For example, in iOS 8.0, the HealthKit framework and EventKit UI framework are unavailable to app extensions.</h3> <p>不能使用API的标志性头文件 和 theNS_EXTENSION_UNAVAILABLE 宏定义，还有一些不能用的框架API,例如HealthKit framework and EventKit UI framework。</p> <h3 id="103access-the-camera-or-microphone-on-an-ios-device-an-imessage-app-unlike-other-app-extensions-does-have-access-to-these-resources-as-long-as-it-correctly-configures-thenscamerausagedescriptionandnsmicrophoneusagedescriptioninfoplistkeys">10.3Access the camera or microphone on an iOS device (an iMessage app, unlike other app extensions, does have access to these resources, as long as it correctly configures theNSCameraUsageDescriptionandNSMicrophoneUsageDescriptionInfo.plistkeys)</h3> <p>不能获取麦克风和照相机的权限(iMessage 不同于其它的应用扩展，只要配置相关的应用权限就可以直接使用了)</p> <h3 id="104perform-long-running-background-tasks">10.4Perform long-running background tasks</h3> <p>不能长期的在后台运行</p> <h3 id="105receive-data-using-airdrop">10.5Receive data using AirDrop</h3> <p>不能使用AirDrop接收相关的数据</p> <p>以上个人翻译，建议<a href="https://developer.apple.com/library/content/documentation/General/Conceptual/ExtensibilityPG/ExtensionOverview.html#//apple_ref/doc/uid/TP40014214-CH2-SW6">查看官方文档</a></p> <h1 id="11-todayextension的进入设置的快捷方式">11 .TodayExtension的进入设置的快捷方式</h1>
+<pre><code class="language-Objective-C">//打开Wi-Fi
+
+[self.extensionContextopenURL:[NSURLURLWithString:@"Prefs:root=WIFI"]completionHandler:^(BOOLsuccess) {
+
+}];
+//打开蜂窝网络
+
+[self.extensionContextopenURL:[NSURLURLWithString:@"Prefs:root=MOBILE_DATA_SETTINGS_ID"]completionHandler:^(BOOLsuccess) {
+
+}];
+</code></pre>
+<p><a href="https://github.com/cyanzhong/app-tutorials/blob/master/prefs.md">更多方式请点击这里,请尽量按照以上方式避免被拒绝.</a></p> <h1 id="12与主app的交互">12.与主APP的交互</h1> <p><img src="http://ac-l1vX02tC.clouddn.com/9b23ab7bdf2069aa01df.png" alt=""> 在扩展中的代码：</p>
+<pre><code class="language-Objective-C">- (void)OpenAcstion{
+
+[self.extensionContextopenURL:[NSURLURLWithString:@"DSLTodayWidget://SecondVC"]completionHandler:^(BOOLsuccess) {
+
+}];
+
+}
+</code></pre>
+<p>在主APP中的代码： AppDelegate</p>
+<pre><code class="language-Objective-C">- (BOOL)application:(UIApplication*)app openURL:(NSURL*)url options:(NSDictionary *)options
+
+{
+
+NSLog(@"=====%@",url.scheme);
+
+NSLog(@"===%@===%@",url.host,url.absoluteString);
+
+if([url.absoluteStringhasPrefix:@"DSLTodayWidget"]) {
+
+if([url.hostisEqualToString:@"SecondVC"]) {
+
+//判断是否是直接跳入到添加页面
+
+//self.window.rootViewController = [[SecondVC alloc]init];
+
+UIViewController*rootNav = (UIViewController*)self.window.rootViewController;
+
+[rootNavpresentViewController:[[SecondVCalloc]init]animated:YEScompletion:nil];
+
+}
+
+}
+
+returnYES;
+
+}
+</code></pre>
+<h1 id="13折叠与展开">13.折叠与展开</h1> <h3 id="131首先折叠与展开只有ios10才有所以先要判断系统的版本">13.1首先折叠与展开只有iOS10才有，所以先要判断系统的版本</h3>
+<pre><code class="language-Objective-C">if ([[UIDevice currentDevice].systemVersion integerValue]&gt;=10) {
+
+self.extensionContext.widgetLargestAvailableDisplayMode = NCWidgetDisplayModeExpanded;
+
+}
+</code></pre>
+<p>然后实现协议，点击展开或者是折叠会触发这个协议就是NCWidgetProviding协议</p>
+<pre><code class="language-Objective-C">- (void)widgetActiveDisplayModeDidChange:(NCWidgetDisplayMode)activeDisplayMode withMaximumSize:(CGSize)maxSize
+
+{
+
+//    NCWidgetDisplayModeCompact, // Fixed height
+
+//    NCWidgetDisplayModeExpanded,
+
+if (activeDisplayMode == NCWidgetDisplayModeCompact ) {
+
+//高度最低为110
+
+self.preferredContentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width ,110);
+
+}else{
+
+//因为机子型号不一样所以最大搞多可能不一样，这里设置最大
+
+self.preferredContentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width ,MAXFLOAT);
+
+}
+
+}
+</code></pre>
+<p>除了上面的协议外还有一个协议就是更新扩展UI界面的协议</p>
+<pre><code class="language-Objective-C">该协议的具体用法，我没有探究，需要更新这个界面的时候就在这方法里面写
+
+- (void)widgetPerformUpdateWithCompletionHandler:(void (^)(NCUpdateResult))completionHandler {
+
+// Perform any setup necessary in order to update the view.
+
+// If an error is encountered, use NCUpdateResultFailed
+
+// If there's no update required, use NCUpdateResultNoData
+
+// If there's an update, use NCUpdateResultNewData
+
+completionHandler(NCUpdateResultNewData);
+
+}
+</code></pre>
+<h1 id="14关于使用storyboard或者是代码">14.关于使用StoryBoard或者是代码</h1> <h3 id="141使用stryboard如果使用自己定义的类的storyboard的话需要修改info文件">14.1使用StryBoard如果使用自己定义的类的StoryBoard的话，需要修改info文件</h3> <h3 id="142">14.2<img src="http://ac-l1vX02tC.clouddn.com/c08223452b889dbf901b.png" alt="">
+</h3> <p>使用这个方法不要忘记在todayViewController的ViewDidLoad中设置preferredContentSize属性调整大小。 14关于上架，上架的时候扩展app一定是单独的appID，且命名时比如：主appID是com.DSLWidget那么扩展appID是com.DSLWidget.widExten这样尽量按照这个格式来，不要问我为什么之前上架踩过的坑</p> <p>本次关于Today Extension之旅结束。随后补充。有错请立即通知我，谢谢。</p> <p><a href="_posts/2017-04-03-sand-box.md">dd</a></p> <p>我叫董诗磊我就是一码农。</p> <div class="entry-meta"> <br> <hr> <span class="entry-tags"></span> <span class="social-share"> <a href="https://www.facebook.com/sharer/sharer.php?u=/Today-Extension/" title="Share on Facebook" class="tag"> <span class="term"><i class="fa fa-facebook-square"></i> Share</span> </a> <a href="https://twitter.com/intent/tweet?text=/Today-Extension/" title="Share on Twitter" class="tag"> <span class="term"><i class="fa fa-twitter-square"></i> Tweet</span> </a> <a href="https://plus.google.com/share?url=/Today-Extension/" title="Share on Google+" class="tag"> <span class="term"><i class="fa fa-google-plus-square"></i> +1</span> </a> </span> <div style="clear:both"></div> </div> </div> </div> </header> <!-- JS --> <script src="/assets/js/jquery-1.12.0.min.js"></script> <script src="/assets/js/jquery.dlmenu.min.js"></script> <script src="/assets/js/jquery.goup.min.js"></script> <script src="/assets/js/jquery.magnific-popup.min.js"></script> <script src="/assets/js/jquery.fitvid.min.js"></script> <script src="/assets/js/scripts.js"></script> <script type="text/javascript"> var disqus_shortname = 'taylantatli'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })(); (function () { var s = document.createElement('script'); s.async = true; s.type = 'text/javascript'; s.src = '//' + disqus_shortname + '.disqus.com/count.js'; (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s); }()); </script> <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript> <!-- MathJax --> <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> </body> </html>
