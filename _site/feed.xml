@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-04-04T16:44:58+08:00</updated><id>/</id><title type="html">DSL’Blog</title><subtitle>我叫董诗磊,我就是一码农.欢迎来到我的博客</subtitle><entry><title type="html">iOS沙盒文件处理</title><link href="/sand-box/" rel="alternate" type="text/html" title="iOS沙盒文件处理" /><published>2017-04-02T11:59:21+08:00</published><updated>2017-04-02T11:59:21+08:00</updated><id>/sand-box</id><content type="html" xml:base="/sand-box/">&lt;p&gt;我最近在做项目的时候会用到关于沙盒的处理，以下是常用的操作：&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-04-04T18:02:31+08:00</updated><id>/</id><title type="html">DSL’Blog</title><subtitle>我叫董诗磊,我就是一码农.欢迎来到我的博客</subtitle><entry><title type="html">iOS沙盒文件处理</title><link href="/sand-box/" rel="alternate" type="text/html" title="iOS沙盒文件处理" /><published>2017-04-02T11:59:21+08:00</published><updated>2017-04-02T11:59:21+08:00</updated><id>/sand-box</id><content type="html" xml:base="/sand-box/">&lt;p&gt;我最近在做项目的时候会用到关于沙盒的处理，以下是常用的操作：&lt;/p&gt;
 
 &lt;h3 id=&quot;1-文件写入操作&quot;&gt;1. 文件写入操作&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;#pragma mark文件写入操作
@@ -242,7 +242,52 @@ self.window.backgroundColor = [UIColor whiteColor];
 因为上面那个方法可能会把系统注册的通知也给移除了，不要这样操纵，一旦出现bug。不容易发现。正确的移除方式是
 [[NSNotificationCenter defaultCenter] removeObserver:self name:@&quot;NSNotificationCenter&quot;object:nil];
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;本篇结束了。。。&lt;/p&gt;</content><summary type="html">开发随手记(一)</summary></entry><entry><title type="html">使用类别(Category)和扩展(Extension)</title><link href="/Category-Extension/" rel="alternate" type="text/html" title="使用类别(Category)和扩展(Extension)" /><published>2017-04-01T11:59:21+08:00</published><updated>2017-04-01T11:59:21+08:00</updated><id>/Category-Extension</id><content type="html" xml:base="/Category-Extension/">&lt;h1 id=&quot;category-extension&quot;&gt;Category-Extension&lt;/h1&gt;
+&lt;p&gt;本篇结束了。。。&lt;/p&gt;</content><summary type="html">开发随手记(一)</summary></entry><entry><title type="html">关于Keyboard Extension</title><link href="/keyboarded/" rel="alternate" type="text/html" title="关于Keyboard Extension" /><published>2017-04-01T11:59:21+08:00</published><updated>2017-04-01T11:59:21+08:00</updated><id>/keyboarded</id><content type="html" xml:base="/keyboarded/">&lt;h1 id=&quot;关于keyboard-extension&quot;&gt;关于Keyboard Extension&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;写了好几天的keyboarded extension， 说实话这个Extension 有点恶心。我感觉bug挺多的，也不能这样说，可能不经常出现的bug都让我遇到了。下面开始说我遇到到了那些问题，以及是怎么做的。&lt;/p&gt;
+
+&lt;p&gt;声明：本文章不做文档翻译，想看翻译自行查询.(网上的都是翻译不解决实际问题。我已经。。。。) &lt;a href=&quot;http://www.jianshu.com/p/987dfa9f3baf&quot;&gt;键盘扩展翻译&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;1-代码分享hostapp-与containapp代码分享和todayextortion-是一样的这里不做多说-todayextortion&quot;&gt;1 代码分享。hostApp 与containApp代码分享和TodayExtortion 是一样的。这里不做多说 TodayExtortion&lt;/h3&gt;
+
+&lt;h3 id=&quot;2数据共享hostapp-与containapp代码分享和todayextortion-是一样的不做多说-todayextortion&quot;&gt;2数据共享。hostApp 与containApp代码分享和TodayExtortion 是一样的。不做多说 TodayExtortion&lt;/h3&gt;
+
+&lt;h3 id=&quot;3申请idhostapp-与containapp代码分享和todayextortion-是一样的不做多说todayextortion&quot;&gt;3申请ID。hostApp 与containApp代码分享和TodayExtortion 是一样的。不做多说TodayExtortion&lt;/h3&gt;
+
+&lt;p&gt;以上都是共同点，毕竟都是扩展。&lt;/p&gt;
+
+&lt;p&gt;下面我认为是重点(因为我是吃过亏的)：&lt;/p&gt;
+
+&lt;h3 id=&quot;1关于在扩展中使用cocoapods这个会者不难难者恶心&quot;&gt;1.关于在扩展中使用cocoapods，这个会者不难，难者恶心。&lt;/h3&gt;
+&lt;p&gt;首先先看stackoverflow&lt;a href=&quot;http://stackoverflow.com/questions/37280077/error-with-cocoapods-link-with-after-update-to-1-0-0&quot;&gt;Extension cocoapods&lt;/a&gt;这个是我在扩展中使用cocoapads出现问题在stackoverflow中找到的目前我找的最佳答案。如果谁知道更好的方法，给我也说说。按照这个上面的说的直接就可以用在hostApp与containApp分别导入相应库就可以了。
+&lt;img src=&quot;http://ac-l1vX02tC.clouddn.com/5adbe79572ebbc69b073.png&quot; alt=&quot;&quot; /&gt;
+主意：提示框如果要是使用第三方的话 ，(算了还是别用第三放了，因为第三方的有sharedApplication，在扩展中获取不到sharedApplication对象)，一定主意。当你按照上面的内容 pod install 成功的时候，你会发现在项目中的hostApp 与containApp中使用的一些库的头文件报错，意思是找不到相应的文件，遇到这种情况，别着急。因为不添加这个use_frameworks!，cocoapads是用static libraries 管理代码的，如果是使的话，cocoapads则是用framework的形式管理代码。所以你必须分别到hostApp 与containApp 中的Target中的BuildPhases 中的 Linked Framework and Libraries 添加相应的第三库，运行一下，顺利通过。这个cocoapds就到此为止。&lt;/p&gt;
+&lt;h3 id=&quot;2关于键盘的高度&quot;&gt;2.关于键盘的高度&lt;/h3&gt;
+&lt;p&gt;我测试过，讯飞的键盘的高度大概在280左右。于是我也是280.但是我发现一个问题。我的手机是iOS9，但是按照官方文档的自定义高度的方法，不起作用，我在iOS10就可以。于是我🈶️去stackoverflow转了一下，找到了这个。就顺利解决了&lt;a href=&quot;http://stackoverflow.com/questions/36145450/incorrect-keyboard-extension-height-after-rotation&quot;&gt;自定义键盘高度&lt;/a&gt;。我写在viewdidload里面。就是加载不出来。哎。。。&lt;/p&gt;
+&lt;h3 id=&quot;3切换输入法&quot;&gt;3.切换输入法&lt;/h3&gt;
+&lt;p&gt;官方文档明确表示，没有给用户切换下个输入法的第三方键盘是不会过审核的。大家主意安全。我一开始就用的是这个方法，&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;- (void)handleInputModeListFromView:(nonnull UIView *)view withEvent:(nonnull UIEvent *)event NS_AVAILABLE_IOS(10_0);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在iOS10上面用的挺爽的。到iOS9上怎么测试就是行。后来看看那个只是针对iOS10 的，尴尬。用这个&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt; //iOS9 和iOS10都是可以的。可以试试
+  - (void)advanceToNextInputMode;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;4推荐一些第三方的&quot;&gt;4.推荐一些第三方的。&lt;/h3&gt;
+&lt;p&gt;keyboard &lt;a href=&quot;https://github.com/polishedcode/tasty-imitation-keyboard&quot;&gt;Extension第三方&lt;/a&gt;。这个自定义键盘其实也不太难。他是一个控制器 UIInputViewController继承自UIViewController，说白就是一个控制器，除了不能获取sharedApplication对象，别的还可以。还有就是坐标的问题，要主意一下。每个人都有获取坐标的习惯不一样，比如我是这样的self.view.frame.size.with。这个在扩展中是不能获取到的。主意。&lt;/p&gt;
+
+&lt;h3 id=&quot;5记得把requestsopenaccess设置为yes&quot;&gt;5.记得把RequestsOpenAccess设置为YES。&lt;/h3&gt;
+
+&lt;h3 id=&quot;6至今未解决的问题&quot;&gt;6.至今未解决的问题。&lt;/h3&gt;
+&lt;p&gt;请求帮助 我的需求是扩展键盘上放了一个uicollectview。每个cell上都加载一个图片。获取图片的步骤：从网络上请求，转化data在转成base64，生成base64字符串。存到数据库。显示的时候，将base64字符串转成data 在转成image；每个图片大概有1Mgif动图吧。不知掉哪个环节出现问题。以至于总是报如下的两个错误。(后来我用工具检测发现内存蹦了600M，用的SDWebimage加载的)。后来用了各种的方法解决也没解决成功就放弃了。&lt;/p&gt;
+
+&lt;h3 id=&quot;61遇见的插件中断和服务中断下面是服务中断的错误信息&quot;&gt;6.1遇见的插件中断和服务中断。下面是服务中断的错误信息&lt;/h3&gt;
+
+&lt;p&gt;2017-03-24 21:37:45.820834 ExpressionBaby[3672:934876] viewServiceDidTerminateWithError:: Error Domain=_UIViewServiceInterfaceErrorDomain Code=3 “(null)” UserInfo={Message=Service Connection Interrupted} 2017-03-24 21:37:48.709876 ExpressionBaby[3672:934876] [App] if we’re in the real pre-commit handler we can’t actually add any new fences due to CA restriction 2017-03-24 21:37:49.222492 ExpressionBaby[3672:934876] viewServiceDidTerminateWithError:: Error Domain=_UIViewServiceInterfaceErrorDomain Code=3 “(null)” UserInfo={Message=Service Connection Interrupted} 2017-03-24 21:37:51.231664 ExpressionBaby[3672:934876] viewServiceDidTerminateWithError:: Error Domain=_UIViewServiceInterfaceErrorDomain Code=3 “(null)” UserInfo={Message=Service Connection Interrupted} 2017-03-24 21:37:53.225378 ExpressionBaby[3672:934876] [App] if we’re in the real pre-commit handler we can’t actually add any new fences due to CA restriction 2017-03-24 21:37:54.500931 ExpressionBaby[3672:934876] [App] if we’re in the real pre-commit handler we can’t actually add any new fences due to CA restriction 2017-03-24 21:37:55.016598 ExpressionBaby[3672:934876] viewServiceDidTerminateWithError:: Error Domain=_UIViewServiceInterfaceErrorDomain Code=3 “(null)” UserInfo={Message=Service Connection Interrupted}&lt;/p&gt;
+&lt;h3 id=&quot;61-上架补充上架的时候一定要有数字和英文键盘另一个是协议必须要有的&quot;&gt;6.1 上架补充，上架的时候一定要有数字和英文键盘,另一个是协议必须要有的，&lt;img src=&quot;http://ac-l1vX02tC.clouddn.com/7b86d88e2a3da8847506.png&quot; alt=&quot;&quot; /&gt;&lt;/h3&gt;
+&lt;p&gt;协议内容就是关于用户的隐私什么的,大概内容就是要保护用户的隐私.(必须要写的)&lt;/p&gt;
+
+&lt;p&gt;我叫董诗磊我就是一码农。&lt;/p&gt;</content><summary type="html">关于Keyboard Extension</summary></entry><entry><title type="html">使用类别(Category)和扩展(Extension)</title><link href="/Category-Extension/" rel="alternate" type="text/html" title="使用类别(Category)和扩展(Extension)" /><published>2017-04-01T11:59:21+08:00</published><updated>2017-04-01T11:59:21+08:00</updated><id>/Category-Extension</id><content type="html" xml:base="/Category-Extension/">&lt;h1 id=&quot;使用类别category和扩展extension&quot;&gt;使用类别(Category)和扩展(Extension)&lt;/h1&gt;
 
 &lt;hr /&gt;
 
@@ -423,7 +468,7 @@ NSLog(@&quot;extension===&quot;);
 
 
 }
-&lt;/code&gt;&lt;/pre&gt;</content><summary type="html">Category-Extension</summary></entry><entry><title type="html">开发随手记(二)</title><link href="/iOS-note2/" rel="alternate" type="text/html" title="开发随手记(二)" /><published>2017-04-01T11:59:21+08:00</published><updated>2017-04-01T11:59:21+08:00</updated><id>/iOS-note2</id><content type="html" xml:base="/iOS-note2/">&lt;h1 id=&quot;开发随手记二&quot;&gt;开发随手记(二)&lt;/h1&gt;
+&lt;/code&gt;&lt;/pre&gt;</content><summary type="html">使用类别(Category)和扩展(Extension)</summary></entry><entry><title type="html">开发随手记(二)</title><link href="/iOS-note2/" rel="alternate" type="text/html" title="开发随手记(二)" /><published>2017-04-01T11:59:21+08:00</published><updated>2017-04-01T11:59:21+08:00</updated><id>/iOS-note2</id><content type="html" xml:base="/iOS-note2/">&lt;h1 id=&quot;开发随手记二&quot;&gt;开发随手记(二)&lt;/h1&gt;
 
 &lt;hr /&gt;
 

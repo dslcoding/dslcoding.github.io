@@ -4,7 +4,7 @@ title:  "使用类别(Category)和扩展(Extension)"
 date:   2017-04-01 10:59:21 +0700
 categories: jekyll update
 ---
-# Category-Extension
+# 使用类别(Category)和扩展(Extension)
 
 ------
 
