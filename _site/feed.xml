@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-04-04T18:02:31+08:00</updated><id>/</id><title type="html">DSL’Blog</title><subtitle>我叫董诗磊,我就是一码农.欢迎来到我的博客</subtitle><entry><title type="html">iOS沙盒文件处理</title><link href="/sand-box/" rel="alternate" type="text/html" title="iOS沙盒文件处理" /><published>2017-04-02T11:59:21+08:00</published><updated>2017-04-02T11:59:21+08:00</updated><id>/sand-box</id><content type="html" xml:base="/sand-box/">&lt;p&gt;我最近在做项目的时候会用到关于沙盒的处理，以下是常用的操作：&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-04-04T18:52:34+08:00</updated><id>/</id><title type="html">DSL’Blog</title><subtitle>我叫董诗磊,我就是一码农.欢迎来到我的博客</subtitle><entry><title type="html">iOS沙盒文件处理</title><link href="/sand-box/" rel="alternate" type="text/html" title="iOS沙盒文件处理" /><published>2017-04-02T11:59:21+08:00</published><updated>2017-04-02T11:59:21+08:00</updated><id>/sand-box</id><content type="html" xml:base="/sand-box/">&lt;p&gt;我最近在做项目的时候会用到关于沙盒的处理，以下是常用的操作：&lt;/p&gt;
 
 &lt;h3 id=&quot;1-文件写入操作&quot;&gt;1. 文件写入操作&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;#pragma mark文件写入操作
@@ -242,7 +242,54 @@ self.window.backgroundColor = [UIColor whiteColor];
 因为上面那个方法可能会把系统注册的通知也给移除了，不要这样操纵，一旦出现bug。不容易发现。正确的移除方式是
 [[NSNotificationCenter defaultCenter] removeObserver:self name:@&quot;NSNotificationCenter&quot;object:nil];
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;本篇结束了。。。&lt;/p&gt;</content><summary type="html">开发随手记(一)</summary></entry><entry><title type="html">关于Keyboard Extension</title><link href="/keyboarded/" rel="alternate" type="text/html" title="关于Keyboard Extension" /><published>2017-04-01T11:59:21+08:00</published><updated>2017-04-01T11:59:21+08:00</updated><id>/keyboarded</id><content type="html" xml:base="/keyboarded/">&lt;h1 id=&quot;关于keyboard-extension&quot;&gt;关于Keyboard Extension&lt;/h1&gt;
+&lt;h3 id=&quot;4获取文件的扩展名&quot;&gt;4.获取文件的扩展名&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;NSString *str  = @&quot;DSL.mp4&quot;;
+
+BOOL isMp4 = [str hasSuffix:@&quot;.mp4&quot;];
+
+//拿到字符串扩展名
+
+NSString *extension = [str pathExtension];
+
+if ([extension isEqualToString:@&quot;mp4&quot;]) {
+
+NSLog(@&quot;我是MP4&quot;);
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;4.获取cell上的控件&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;- (void)digAction:(UIButton*)btn event:(id)event
+
+{
+
+NSSet*touches =[eventallTouches];
+
+UITouch*touch =[touchesanyObject];
+
+CGPointcurrentTouchPosition = [touchlocationInView:_tableView];
+
+NSIndexPath*indexPath= [_tableViewindexPathForRowAtPoint:currentTouchPosition];
+
+//通过这个index获取cell
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;本篇结束了。。。&lt;/p&gt;</content><summary type="html">开发随手记(一)</summary></entry><entry><title type="html">iOSExtensionProgram总结</title><link href="/iOSExtension/" rel="alternate" type="text/html" title="iOSExtensionProgram总结" /><published>2017-04-01T11:59:21+08:00</published><updated>2017-04-01T11:59:21+08:00</updated><id>/iOSExtension</id><content type="html" xml:base="/iOSExtension/">&lt;h1 id=&quot;iosextensionprogram总结&quot;&gt;iOSExtensionProgram总结&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;1上架的问题hostapp和containingapp的版本号必须一致&quot;&gt;1.上架的问题hostapp和containingapp的版本号必须一致，&lt;/h3&gt;
+
+&lt;h3 id=&quot;2关于bundle-identifier的话hostapp-和-containingapp都是独立的app所有你必须申请两个id&quot;&gt;2.关于Bundle identifier的话，hostapp 和 containingapp都是独立的App。所有你必须申请两个ID，&lt;/h3&gt;
+
+&lt;h3 id=&quot;3上面的第二条是申请两个bundle-identifier这个两个bundle-identifier的名字规则是hostappcomdslcontainingappcomdsltodaywight通知扩展还有键盘扩展comdslkeyboard&quot;&gt;3.上面的第二条是申请两个Bundle identifier。这个两个Bundle identifier的名字规则是：hostApp:com.DSL，containingapp:com.DSL.todayWight(通知扩展，还有键盘扩展com.DSL.keyboard)&lt;/h3&gt;
+
+&lt;h3 id=&quot;4关于cocoapods的使用请看我的写的一篇ios-keyboarded-extension&quot;&gt;4.关于cocoapods的使用,请看我的写的一篇iOS Keyboarded Extension&lt;/h3&gt;
+
+&lt;h3 id=&quot;5别的问题遇见在说吧&quot;&gt;5.别的问题遇见在说吧&lt;/h3&gt;</content><summary type="html">iOSExtensionProgram总结</summary></entry><entry><title type="html">关于Keyboard Extension</title><link href="/keyboarded/" rel="alternate" type="text/html" title="关于Keyboard Extension" /><published>2017-04-01T11:59:21+08:00</published><updated>2017-04-01T11:59:21+08:00</updated><id>/keyboarded</id><content type="html" xml:base="/keyboarded/">&lt;h1 id=&quot;关于keyboard-extension&quot;&gt;关于Keyboard Extension&lt;/h1&gt;
 
 &lt;hr /&gt;
 
