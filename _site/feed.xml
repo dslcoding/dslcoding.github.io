@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-04-04T10:59:55+08:00</updated><id>/</id><title type="html">DSL’Blog</title><subtitle>Moon is a minimal, one column jekyll theme for your blog.</subtitle><entry><title type="html">iOS沙盒文件处理</title><link href="/sand-box/" rel="alternate" type="text/html" title="iOS沙盒文件处理" /><published>2017-04-02T11:59:21+08:00</published><updated>2017-04-02T11:59:21+08:00</updated><id>/sand-box</id><content type="html" xml:base="/sand-box/">&lt;p&gt;我最近在做项目的时候会用到关于沙盒的处理，以下是常用的操作：&lt;/p&gt;
+
+&lt;h3 id=&quot;1-文件写入操作&quot;&gt;1. 文件写入操作&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;#pragma mark文件写入操作
+
+-(void)writeImageFileToDocument {
+
+//声明一个文件管理器
+
+NSFileManager*manger = [NSFileManagerdefaultManager];
+
+//获取沙盒路径
+
+NSString* writePath = [NSHomeDirectory()stringByAppendingPathComponent:@&quot;/Documents&quot;];
+
+//文件路径
+
+NSString*imagePath=[writePathstringByAppendingPathComponent:@&quot;DSL.jpg&quot;];
+
+if([mangerfileExistsAtPath:imagePath]) {
+
+NSLog(@&quot; image is exist&quot;);
+
+return;
+
+}
+//将图片写到沙盒中
+
+NSString*sourcePath = [[NSBundlemainBundle]pathForResource:@&quot;1.jpg&quot;ofType:nil];
+
+NSData*iamgeData = [NSDatadataWithContentsOfFile:sourcePath];
+
+if([iamgeDatawriteToFile:imagePathatomically:YES]) {
+
+NSLog(@&quot;write image success&quot;);
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;2文件读取操作&quot;&gt;2.文件读取操作&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;#pragma mark文件读取操作
+
+- (void)readImageFileFromDocument{
+
+//获取路径
+
+NSString* imagePath = [NSHomeDirectory()stringByAppendingPathComponent:@&quot;/Documents/DSL.jpg&quot;];
+
+//显示
+
+self.successImage.image= [UIImageimageWithContentsOfFile:imagePath];
+
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;3删除文件操作&quot;&gt;3.删除文件操作&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;#pragma mark删除文件操作
+
+- (void)deleteDocument{
+
+//获取路径
+
+NSString* imagePath = [NSHomeDirectory()stringByAppendingPathComponent:@&quot;/Documents/DSL.jpg&quot;];
+
+NSFileManager*manger = [NSFileManagerdefaultManager];
+
+NSError* error;
+
+[mangerremoveItemAtPath:imagePatherror:&amp;amp;error];
+
+if(error) {
+
+NSLog(@&quot;delete error == %@&quot;,[errorlocalizedDescription]);
+
+}else{
+
+NSLog(@&quot; delete success&quot;);
+
+}
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;3在沙盒中新建一个文件夹&quot;&gt;3.在沙盒中新建一个文件夹&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;
+#pragma mark在沙盒中新建一个文件夹
+
+- (void)createFilder
+
+{
+
+//沙盒文件的路径
+
+NSString* documentStr = [NSHomeDirectory()stringByAppendingPathComponent:@&quot;/Documents&quot;];
+
+//新的文件的路径
+
+NSString* newFilderPath = [documentStrstringByAppendingPathComponent:@&quot;/DSLFilder&quot;];
+
+NSFileManager* manger = [NSFileManagerdefaultManager];
+
+NSError* error;
+
+//创建操作
+
+[mangercreateDirectoryAtPath:newFilderPathwithIntermediateDirectories:YESattributes:nilerror:&amp;amp;error];
+
+if(error) {
+
+NSLog(@&quot;create filder failed == %@&quot;,[errorlocalizedDescription]);
+
+}else{
+
+NSLog(@&quot;create filder success&quot;);
+
+}
+
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;4给新建的文件写入一个张图片&quot;&gt;4.给新建的文件写入一个张图片&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;#pragma mark给新建的文件写入一个张图片
+
+- (void)writeImageToNewFilder{
+
+//新的文件的路径
+
+NSString* documentStr = [NSHomeDirectory()stringByAppendingPathComponent:@&quot;/Documents/DSLFilder/DSL.jpg&quot;];
+
+//将图片写到沙盒中
+
+NSString*sourcePath = [[NSBundlemainBundle]pathForResource:@&quot;1.jpg&quot;ofType:nil];
+
+NSError* error;
+
+[[NSFileManagerdefaultManager]copyItemAtPath:sourcePathtoPath:documentStrerror:&amp;amp;error];
+
+//这里用copy
+
+if(error) {
+
+NSLog(@&quot;write image failed==%@&quot;,[errorlocalizedDescription]);
+
+}else{
+
+NSLog(@&quot;write image success&quot;);
+
+}
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;5获取某个目录下的所有文件名&quot;&gt;5.获取某个目录下的所有文件名&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;#pragma mark获取某个目录下的所有文件名
+
+- (void)getAllDocumentName{
+
+//获取需要查找的路径
+
+NSString* documentPath = [NSHomeDirectory()stringByAppendingPathComponent:@&quot;/Documents/DSLFilder&quot;];
+
+NSArray* namesArray =nil;
+
+NSError* error;
+
+namesArray = [[NSFileManagerdefaultManager]contentsOfDirectoryAtPath:documentPatherror:&amp;amp;error];
+
+if(error) {
+
+}else
+
+{
+
+[namesArrayenumerateObjectsUsingBlock:^(id_Nonnullobj,NSUIntegeridx,BOOL*_Nonnullstop) {
+
+if([objhasSuffix:@&quot;jpg&quot;]) {
+
+NSLog(@&quot;=====%@&quot;,obj);
+
+}
+
+}];
+
+}
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;没啦，结束啦&lt;/p&gt;</content><summary type="html">我最近在做项目的时候会用到关于沙盒的处理，以下是常用的操作：</summary></entry><entry><title type="html">iOS随手记(一)</title><link href="/iOS-note1/" rel="alternate" type="text/html" title="iOS随手记(一)" /><published>2017-04-02T11:59:21+08:00</published><updated>2017-04-02T11:59:21+08:00</updated><id>/iOS-note1</id><content type="html" xml:base="/iOS-note1/">&lt;h1 id=&quot;开发随手记一&quot;&gt;开发随手记(一)&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;1关于给tabbaritem设置属性&quot;&gt;1.关于给tabbarItem设置属性&lt;/h2&gt;
+&lt;h3 id=&quot;11设置图片&quot;&gt;1.1设置图片&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;childController.tabBarItem.image= [normalImageimageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+
+childController.tabBarItem.selectedImage= [selectedImageimageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;12未选中字体颜色&quot;&gt;1.2未选中字体颜色&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;[[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:unselectColor,NSFontAttributeName:[UIFont fontWithName:foneName size:15]} forState:UIControlStateNormal];
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;13选中字体颜色&quot;&gt;1.3选中字体颜色&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;[[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:selectColor,NSFontAttributeName:[UIFont fontWithName:foneName size:15]} forState:UIControlStateSelected];
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;2之前在做项目的时候在push界面的时候总是发现有灰色的阴影在网上查了资料在知道&quot;&gt;2.之前在做项目的时候在push界面的时候总是发现有灰色的阴影。在网上查了资料在知道&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;自从iOS7之后push导航栏出现白色阴影，导航栏的背景色是透明的，或者是黑色阴影估计就是底层Controller的背景色的解决方法是
+self.window.backgroundColor = [UIColor whiteColor];
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;3关于通知的注意事项&quot;&gt;3.关于通知的注意事项&lt;/h2&gt;
+
+&lt;p&gt;###3.1在主线程上发送通知&lt;/p&gt;
+
+&lt;p&gt;###3.2注册通知和移除通知一定要成对出现，比如在&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;//一定要成对出现，避免出现bug
+- (void)viewWillAppear:(BOOL)animated
+
+{
+
+[super viewWillAppear:animated];
+
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(NSNotificationCenterAction) name:@&quot;NSNotificationCenter&quot;object:nil];
+
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+
+{
+
+[super viewWillDisappear:animated];
+
+[[NSNotificationCenter defaultCenter] removeObserver:self name:@&quot;NSNotificationCenter&quot;object:nil];
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;33在通知移除的时候不要使用&quot;&gt;3.3在通知移除的时候。不要使用&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;[[NSNotificationCenter defaultCenter] removeObserver:self]
+因为上面那个方法可能会把系统注册的通知也给移除了，不要这样操纵，一旦出现bug。不容易发现。正确的移除方式是
+[[NSNotificationCenter defaultCenter] removeObserver:self name:@&quot;NSNotificationCenter&quot;object:nil];
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;本篇结束了。。。&lt;/p&gt;</content><summary type="html">开发随手记(一)</summary></entry><entry><title type="html">开发随手记(二)</title><link href="/iOS-note2/" rel="alternate" type="text/html" title="开发随手记(二)" /><published>2017-04-01T11:59:21+08:00</published><updated>2017-04-01T11:59:21+08:00</updated><id>/iOS-note2</id><content type="html" xml:base="/iOS-note2/">&lt;h1 id=&quot;开发随手记二&quot;&gt;开发随手记(二)&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;开发随手记二-1&quot;&gt;开发随手记(二)&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;在项目中积累中的错误&quot;&gt;在项目中积累中的错误&lt;/h1&gt;
+
+&lt;p&gt;1.ld: can’t link with a main executable file ‘/Users/apple/Library/Developer/Xcode/DerivedData/LePaiDemo-ftsuwgzvjdjwzghgkuefbzvdkvey/Build/Products/Debug-iphoneos/LePaiDemo.app/LePaiDemo’ for architecture armv7clang: error: unable to execute command: Segmentation fault: 11clang: error: linker command failed due to signal (use -v to see invocation)
+  &lt;img src=&quot;http://ac-l1vX02tC.clouddn.com/32763884c73603e8276e.png&quot; alt=&quot;&quot; /&gt;
+    把Architectures的debug改为NO就可以&lt;/p&gt;
+
+&lt;p&gt;2.Code Sign error: Provisioning profile does not match bundle identifier: The provisioning profile specified in your build settings (“ColorKey Distribution”) has an AppID of “com.iAppsLLC.ColorKey” which does not match your bundle identifier “ com.iAppsLLC.ColorKey.MyKeyBoard”.
+解决方法是：在build Settings 里有一项 Packaging项  里边有个Product Bundle Identifier  需要与plist文件里的Bundle Identifier 保持一致。最后修改完成以后clean一下充跑吧。如果证书，App ID ，以及描述文件没有设置错误，那就应该没有问题了。&lt;/p&gt;
+
+&lt;p&gt;3.因为有些第三方库不支持bitcode。 关闭BItcode&lt;/p&gt;</content><summary type="html">开发随手记(二)</summary></entry></feed>
