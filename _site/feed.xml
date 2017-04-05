@@ -1,4 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-04-04T18:52:34+08:00</updated><id>/</id><title type="html">DSL’Blog</title><subtitle>我叫董诗磊,我就是一码农.欢迎来到我的博客</subtitle><entry><title type="html">iOS沙盒文件处理</title><link href="/sand-box/" rel="alternate" type="text/html" title="iOS沙盒文件处理" /><published>2017-04-02T11:59:21+08:00</published><updated>2017-04-02T11:59:21+08:00</updated><id>/sand-box</id><content type="html" xml:base="/sand-box/">&lt;p&gt;我最近在做项目的时候会用到关于沙盒的处理，以下是常用的操作：&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-04-05T11:01:26+08:00</updated><id>/</id><title type="html">DSL’Blog</title><subtitle>我叫董诗磊,我就是一码农.欢迎来到我的博客</subtitle><entry><title type="html">2017-04-05 语录</title><link href="/morning-saying/" rel="alternate" type="text/html" title="2017-04-05 语录" /><published>2017-04-05T00:00:00+08:00</published><updated>2017-04-05T00:00:00+08:00</updated><id>/morning-saying</id><content type="html" xml:base="/morning-saying/">&lt;h1 id=&quot;2017-04-05-语录&quot;&gt;2017-04-05 语录&lt;/h1&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;身安不如心安屋宽不如心宽以自然之道养自然之身以喜悦之身养喜悦之神有所畏惧是做人最基本的良心准则所谓快乐不是财富多而是欲望少做人人品为先才能为次做事明理为先勤奋为次人生要学会不抱怨不等待不盲从&quot;&gt;身安，不如心安；屋宽，不如心宽。以自然之道，养自然之身；以喜悦之身，养喜悦之神。有所畏惧，是做人最基本的良心准则。所谓快乐，不是财富多而是欲望少。做人，人品为先，才能为次；做事，明理为先，勤奋为次。人生要学会不抱怨，不等待，不盲从。&lt;/h2&gt;
+&lt;p&gt;美好的一天从自然开始！&lt;/p&gt;</content><summary type="html">2017-04-05 语录</summary></entry><entry><title type="html">iOS沙盒文件处理</title><link href="/sand-box/" rel="alternate" type="text/html" title="iOS沙盒文件处理" /><published>2017-04-02T11:59:21+08:00</published><updated>2017-04-02T11:59:21+08:00</updated><id>/sand-box</id><content type="html" xml:base="/sand-box/">&lt;p&gt;我最近在做项目的时候会用到关于沙盒的处理，以下是常用的操作：&lt;/p&gt;
 
 &lt;h3 id=&quot;1-文件写入操作&quot;&gt;1. 文件写入操作&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;#pragma mark文件写入操作
@@ -186,7 +190,8 @@ NSLog(@&quot;=====%@&quot;,obj);
 
 }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;没啦，结束啦&lt;/p&gt;</content><summary type="html">我最近在做项目的时候会用到关于沙盒的处理，以下是常用的操作：</summary></entry><entry><title type="html">iOS随手记(一)</title><link href="/iOS-note1/" rel="alternate" type="text/html" title="iOS随手记(一)" /><published>2017-04-02T11:59:21+08:00</published><updated>2017-04-02T11:59:21+08:00</updated><id>/iOS-note1</id><content type="html" xml:base="/iOS-note1/">&lt;h1 id=&quot;开发随手记一&quot;&gt;开发随手记(一)&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/dslcoding/sandboxDealWith&quot;&gt;相关demo&lt;/a&gt;
+没啦，结束啦&lt;/p&gt;</content><summary type="html">我最近在做项目的时候会用到关于沙盒的处理，以下是常用的操作：</summary></entry><entry><title type="html">iOS随手记(一)</title><link href="/iOS-note1/" rel="alternate" type="text/html" title="iOS随手记(一)" /><published>2017-04-02T11:59:21+08:00</published><updated>2017-04-02T11:59:21+08:00</updated><id>/iOS-note1</id><content type="html" xml:base="/iOS-note1/">&lt;h1 id=&quot;开发随手记一&quot;&gt;开发随手记(一)&lt;/h1&gt;
 
 &lt;hr /&gt;
 
@@ -515,7 +520,8 @@ NSLog(@&quot;extension===&quot;);
 
 
 }
-&lt;/code&gt;&lt;/pre&gt;</content><summary type="html">使用类别(Category)和扩展(Extension)</summary></entry><entry><title type="html">开发随手记(二)</title><link href="/iOS-note2/" rel="alternate" type="text/html" title="开发随手记(二)" /><published>2017-04-01T11:59:21+08:00</published><updated>2017-04-01T11:59:21+08:00</updated><id>/iOS-note2</id><content type="html" xml:base="/iOS-note2/">&lt;h1 id=&quot;开发随手记二&quot;&gt;开发随手记(二)&lt;/h1&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/dslcoding/Category-Extension&quot;&gt;相关demo&lt;/a&gt;&lt;/p&gt;</content><summary type="html">使用类别(Category)和扩展(Extension)</summary></entry><entry><title type="html">开发随手记(二)</title><link href="/iOS-note2/" rel="alternate" type="text/html" title="开发随手记(二)" /><published>2017-04-01T11:59:21+08:00</published><updated>2017-04-01T11:59:21+08:00</updated><id>/iOS-note2</id><content type="html" xml:base="/iOS-note2/">&lt;h1 id=&quot;开发随手记二&quot;&gt;开发随手记(二)&lt;/h1&gt;
 
 &lt;hr /&gt;
 
