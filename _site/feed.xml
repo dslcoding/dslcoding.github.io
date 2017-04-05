@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-04-05T11:01:26+08:00</updated><id>/</id><title type="html">DSL’Blog</title><subtitle>我叫董诗磊,我就是一码农.欢迎来到我的博客</subtitle><entry><title type="html">2017-04-05 语录</title><link href="/morning-saying/" rel="alternate" type="text/html" title="2017-04-05 语录" /><published>2017-04-05T00:00:00+08:00</published><updated>2017-04-05T00:00:00+08:00</updated><id>/morning-saying</id><content type="html" xml:base="/morning-saying/">&lt;h1 id=&quot;2017-04-05-语录&quot;&gt;2017-04-05 语录&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-04-05T23:32:47+08:00</updated><id>/</id><title type="html">DSL’Blog</title><subtitle>我叫董诗磊,我就是一码农.欢迎来到我的博客</subtitle><entry><title type="html">2017-04-05 语录</title><link href="/morning-saying/" rel="alternate" type="text/html" title="2017-04-05 语录" /><published>2017-04-05T00:00:00+08:00</published><updated>2017-04-05T00:00:00+08:00</updated><id>/morning-saying</id><content type="html" xml:base="/morning-saying/">&lt;h1 id=&quot;2017-04-05-语录&quot;&gt;2017-04-05 语录&lt;/h1&gt;
 
 &lt;hr /&gt;
 &lt;h2 id=&quot;身安不如心安屋宽不如心宽以自然之道养自然之身以喜悦之身养喜悦之神有所畏惧是做人最基本的良心准则所谓快乐不是财富多而是欲望少做人人品为先才能为次做事明理为先勤奋为次人生要学会不抱怨不等待不盲从&quot;&gt;身安，不如心安；屋宽，不如心宽。以自然之道，养自然之身；以喜悦之身，养喜悦之神。有所畏惧，是做人最基本的良心准则。所谓快乐，不是财富多而是欲望少。做人，人品为先，才能为次；做事，明理为先，勤奋为次。人生要学会不抱怨，不等待，不盲从。&lt;/h2&gt;
@@ -339,7 +339,9 @@ NSIndexPath*indexPath= [_tableViewindexPathForRowAtPoint:currentTouchPosition];
 &lt;h3 id=&quot;61-上架补充上架的时候一定要有数字和英文键盘另一个是协议必须要有的&quot;&gt;6.1 上架补充，上架的时候一定要有数字和英文键盘,另一个是协议必须要有的，&lt;img src=&quot;http://ac-l1vX02tC.clouddn.com/7b86d88e2a3da8847506.png&quot; alt=&quot;&quot; /&gt;&lt;/h3&gt;
 &lt;p&gt;协议内容就是关于用户的隐私什么的,大概内容就是要保护用户的隐私.(必须要写的)&lt;/p&gt;
 
-&lt;p&gt;我叫董诗磊我就是一码农。&lt;/p&gt;</content><summary type="html">关于Keyboard Extension</summary></entry><entry><title type="html">使用类别(Category)和扩展(Extension)</title><link href="/Category-Extension/" rel="alternate" type="text/html" title="使用类别(Category)和扩展(Extension)" /><published>2017-04-01T11:59:21+08:00</published><updated>2017-04-01T11:59:21+08:00</updated><id>/Category-Extension</id><content type="html" xml:base="/Category-Extension/">&lt;h1 id=&quot;使用类别category和扩展extension&quot;&gt;使用类别(Category)和扩展(Extension)&lt;/h1&gt;
+&lt;p&gt;我叫董诗磊我就是一码农。&lt;/p&gt;</content><summary type="html">关于Keyboard Extension</summary></entry><entry><title type="html">内存泄漏与内存溢出</title><link href="/iOS-Memory/" rel="alternate" type="text/html" title="内存泄漏与内存溢出" /><published>2017-04-01T11:59:21+08:00</published><updated>2017-04-01T11:59:21+08:00</updated><id>/iOS-Memory</id><content type="html" xml:base="/iOS-Memory/">&lt;h1 id=&quot;内存泄漏与内存溢出&quot;&gt;内存泄漏与内存溢出&lt;/h1&gt;
+
+&lt;hr /&gt;</content><summary type="html">内存泄漏与内存溢出</summary></entry><entry><title type="html">使用类别(Category)和扩展(Extension)</title><link href="/Category-Extension/" rel="alternate" type="text/html" title="使用类别(Category)和扩展(Extension)" /><published>2017-04-01T11:59:21+08:00</published><updated>2017-04-01T11:59:21+08:00</updated><id>/Category-Extension</id><content type="html" xml:base="/Category-Extension/">&lt;h1 id=&quot;使用类别category和扩展extension&quot;&gt;使用类别(Category)和扩展(Extension)&lt;/h1&gt;
 
 &lt;hr /&gt;
 
@@ -534,7 +536,50 @@ NSLog(@&quot;extension===&quot;);
 &lt;p&gt;2.Code Sign error: Provisioning profile does not match bundle identifier: The provisioning profile specified in your build settings (“ColorKey Distribution”) has an AppID of “com.iAppsLLC.ColorKey” which does not match your bundle identifier “ com.iAppsLLC.ColorKey.MyKeyBoard”.
 解决方法是：在build Settings 里有一项 Packaging项  里边有个Product Bundle Identifier  需要与plist文件里的Bundle Identifier 保持一致。最后修改完成以后clean一下充跑吧。如果证书，App ID ，以及描述文件没有设置错误，那就应该没有问题了。&lt;/p&gt;
 
-&lt;p&gt;3.因为有些第三方库不支持bitcode。 关闭BItcode&lt;/p&gt;</content><summary type="html">开发随手记(二)</summary></entry><entry><title type="html">关于Today Extension</title><link href="/today-extension/" rel="alternate" type="text/html" title="关于Today Extension" /><published>2016-09-02T11:59:21+08:00</published><updated>2016-09-02T11:59:21+08:00</updated><id>/today-extension</id><content type="html" xml:base="/today-extension/">&lt;h1 id=&quot;关于today-extension&quot;&gt;关于Today Extension&lt;/h1&gt;
+&lt;p&gt;3.因为有些第三方库不支持bitcode。 关闭BItcode&lt;/p&gt;</content><summary type="html">开发随手记(二)</summary></entry><entry><title type="html">Json&amp;amp;Xml</title><link href="/iOS-json&xml/" rel="alternate" type="text/html" title="Json&amp;Xml" /><published>2017-04-01T11:59:21+08:00</published><updated>2017-04-01T11:59:21+08:00</updated><id>/iOS-json&amp;xml</id><content type="html" xml:base="/iOS-json&amp;xml/">&lt;h1 id=&quot;jsonxml&quot;&gt;Json&amp;amp;Xml&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;由于公司的项目不涉及大量的数据解析所以解析数据的机会就越来越少常说熟能生巧我这都快生了今天做个总结也算是个复习吧&quot;&gt;由于公司的项目不涉及大量的数据解析。所以解析数据的机会就越来越少，常说熟能生巧。我这都快生了。今天做个总结，也算是个复习吧！&lt;/h2&gt;
+&lt;h2 id=&quot;首先说明本次的json解析不实用第三方json解析的第三方有jsonkitsbjosnafnetworkingyy系列等等有很多根据个人的编码习惯自己选择我的习惯是不使用第三方&quot;&gt;首先说明本次的json解析不实用第三方。json解析的第三方有JsonKit，SBJosn，AFNetworking，YY系列等等有很多。根据个人的编码习惯，自己选择。我的习惯是不使用第三方。&lt;/h2&gt;
+&lt;h2 id=&quot;不就是解析个数据嘛&quot;&gt;不就是解析个数据嘛。&lt;/h2&gt;
+&lt;h2 id=&quot;动动小手啥都有&quot;&gt;动动小手，啥都有。&lt;/h2&gt;
+&lt;h2 id=&quot;废话不多说直接上代码&quot;&gt;废话不多说直接上代码。&lt;/h2&gt;
+&lt;h2 id=&quot;json解析&quot;&gt;json解析&lt;/h2&gt;
+&lt;h3 id=&quot;解析json数据-用苹果官方给出的nsjsonserialization记得是ios5的-解析方式是性能最优越的复杂程度还可以&quot;&gt;解析json数据 用苹果官方给出的NSJSONSerialization（记得是iOS5的） 解析方式是性能最优越的，复杂程度还可以。&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;    NSURLSessionDataTask *tast = [[NSURLSession sharedSession]dataTaskWithURL:[NSURL URLWithString:@&quot;https://api.douban.com/v2/movie/subject/25881786&quot;] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        
+        
+        //最外层是个字典直接用字典接收。如果是数组就用数组
+        NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        
+         NSLog(@&quot;=====%@&quot;,[dic objectForKey:@&quot;alt&quot;]);
+         //成功输出=====https://movie.douban.com/subject/25881786/===具体的自己代码测试啊
+        
+        
+    }];
+    
+    [tast resume];
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;生成json字符串&quot;&gt;生成json字符串&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt; NSDictionary * dic = @{
+                           @&quot;large&quot;:@&quot;https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2276855500.jpg&quot;,
+                           @&quot;medium&quot;:@&quot;https://img3.doubanio.com/view/movie_poster_cover/spst/public/p2276855500.jpg&quot;
+                           };
+    
+    NSData * data = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
+    
+    NSLog(@&quot;===%@&quot;,[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;xml解析&quot;&gt;xml解析&lt;/h2&gt;
+&lt;h3 id=&quot;这个xml解析说实话我都已经把他给忘了因为从我工作第一天到现在没有遇见过xml解析不知道现在还有没有公司在使用不管有没有公司在使用今天是做记录的都要记录的&quot;&gt;这个xml解析说实话。我都已经把他给忘了，因为从我工作第一天到现在没有遇见过xml解析。不知道现在还有没有公司在使用。不管有没有公司在使用，今天是做记录的，都要记录的。&lt;/h3&gt;
+&lt;p&gt;首先对iOS的xml的概念做些了解，iOSxml解析主要有两种方式，SAX和DOM解析。SAX解析是标签读取，逐行解析数据，采用协议的方式获取数据。DOM解析就是把整个文档读入，将整个文档生成一个树结构，有节点，子节点等，然后对节点进行解析。&lt;/p&gt;
+&lt;h3 id=&quot;这里不做演示如果记不得啦自行搜索&quot;&gt;这里不做演示。如果记不得啦，自行搜索&lt;/h3&gt;
+
+&lt;p&gt;没有啦，完啦。&lt;/p&gt;</content><summary type="html">Json&amp;amp;Xml</summary></entry><entry><title type="html">关于Today Extension</title><link href="/today-extension/" rel="alternate" type="text/html" title="关于Today Extension" /><published>2016-09-02T11:59:21+08:00</published><updated>2016-09-02T11:59:21+08:00</updated><id>/today-extension</id><content type="html" xml:base="/today-extension/">&lt;h1 id=&quot;关于today-extension&quot;&gt;关于Today Extension&lt;/h1&gt;
 
 &lt;p&gt;第一次写Extension功能，下面是我的一些步骤。这是对&lt;a href=&quot;https://developer.apple.com/library/content/documentation/General/Conceptual/ExtensibilityPG/&quot;&gt;iOS App Extension Programming Guide&lt;/a&gt;的链接。&lt;/p&gt;
 
