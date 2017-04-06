@@ -31,5 +31,116 @@
     NSLog(@"===%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
 
 </code></pre>
-<h2 id="xml解析">xml解析</h2> <h3 id="这个xml解析说实话我都已经把他给忘了因为从我工作第一天到现在没有遇见过xml解析不知道现在还有没有公司在使用不管有没有公司在使用今天是做记录的都要记录的">这个xml解析说实话。我都已经把他给忘了，因为从我工作第一天到现在没有遇见过xml解析。不知道现在还有没有公司在使用。不管有没有公司在使用，今天是做记录的，都要记录的。</h3> <p>首先对iOS的xml的概念做些了解，iOSxml解析主要有两种方式，SAX和DOM解析。SAX解析是标签读取，逐行解析数据，采用协议的方式获取数据。DOM解析就是把整个文档读入，将整个文档生成一个树结构，有节点，子节点等，然后对节点进行解析。</p> <h3 id="这里不做演示如果记不得啦自行搜索">这里不做演示。如果记不得啦，自行搜索</h3> <p>没有啦，完啦。</p> <div class="entry-meta"> <br> <hr> <span class="entry-tags"></span> <span class="social-share"> <a href="https://www.facebook.com/sharer/sharer.php?u=/iOS-json&amp;xml/" title="Share on Facebook" class="tag"> <span class="term"><i class="fa fa-facebook-square"></i> Share</span> </a> <a href="https://twitter.com/intent/tweet?text=/iOS-json&amp;xml/" title="Share on Twitter" class="tag"> <span class="term"><i class="fa fa-twitter-square"></i> Tweet</span> </a> <a href="https://plus.google.com/share?url=/iOS-json&amp;xml/" title="Share on Google+" class="tag"> <span class="term"><i class="fa fa-google-plus-square"></i> +1</span> </a> </span> <div style="clear:both"></div> </div> </div> </div> </header> <!-- JS --> <script src="/assets/js/jquery-1.12.0.min.js"></script> <script src="/assets/js/jquery.dlmenu.min.js"></script> <script src="/assets/js/jquery.goup.min.js"></script> <script src="/assets/js/jquery.magnific-popup.min.js"></script> <script src="/assets/js/jquery.fitvid.min.js"></script> <script src="/assets/js/scripts.js"></script> <script type="text/javascript"> var disqus_shortname = 'taylantatli'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })(); (function () { var s = document.createElement('script'); s.async = true; s.type = 'text/javascript'; s.src = '//' + disqus_shortname + '.disqus.com/count.js'; (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s); }()); </script> <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+<h2 id="xml解析">xml解析</h2> <h3 id="这个xml解析说实话我都已经把他给忘了因为从我工作第一天到现在没有遇见过xml解析不知道现在还有没有公司在使用不管有没有公司在使用今天是做记录的都要记录的">这个xml解析说实话。我都已经把他给忘了，因为从我工作第一天到现在没有遇见过xml解析。不知道现在还有没有公司在使用。不管有没有公司在使用，今天是做记录的，都要记录的。</h3> <p>首先对iOS的xml的概念做些了解，iOSxml解析主要有两种方式，SAX和DOM解析。SAX解析是标签读取，逐行解析数据，采用协议的方式获取数据。DOM解析就是把整个文档读入，将整个文档生成一个树结构，有节点，子节点等，然后对节点进行解析。</p> <h3 id="时间长啦我都忘了所以花了点时间准备一下下面是demo">时间长啦。我都忘了。所以花了点时间准备一下，下面是demo</h3> <h3 id="1资源文件详见demo或者找一些json文件直接转成xml自行搜索">1.资源文件详见demo，或者找一些json文件直接转成xml。自行搜索。</h3> <h3 id="2demo">2.demo</h3> <h3 id="21">2.1</h3>
+<pre><code class="language-Objective-C">//首先建立一个model类
+
+@interface DSLModel : NSObject
+
+@property (nonatomic ,copy) NSString *proID;
+
+@property (nonatomic ,copy) NSString *proName;
+
+@property (nonatomic ,copy) NSString *pinyin;
+
+@property (nonatomic ,copy) NSString *hits;
+
+@end
+
+</code></pre>
+<h3 id="22-viewcontrol操作">2.2 Viewcontrol操作</h3>
+<pre><code class="language-Objective-C">- (void)xml{
+    
+    //声明一个数组，用来存放解析的数据
+    self.dataArray = [[NSMutableArray alloc]init];
+    
+    NSString * path = [[NSBundle mainBundle]pathForResource:@"DSL.xml" ofType:nil];
+    
+
+    NSXMLParser * xmlParser = [[NSXMLParser alloc]initWithData:[NSData dataWithContentsOfFile:path]];
+    
+    xmlParser.delegate = self;
+    
+    [xmlParser parse];
+
+
+}
+
+
+#pragma mark NSXMLParserDelegate
+//文档读区开始
+- (void)parserDidStartDocument:(NSXMLParser *)parser
+{
+
+    NSLog(@"parse start");
+    
+
+}
+
+//文档读取结束
+- (void)parserDidEndDocument:(NSXMLParser *)parser
+{
+    NSLog(@"parser end ===%@",self.dataArray);
+    
+    [self.dataArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+       
+        DSLModel *model = (DSLModel*)obj;
+        
+        NSLog(@"====%@===%@==%@",model.proID,model.pinyin,model.proName);
+        
+        
+    }];
+
+}
+
+//解析标签开始
+- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary&lt;NSString *,NSString *&gt; *)attributeDict{
+
+    self.startTagFlag = elementName;
+    
+    if ([elementName isEqualToString:@"result"]) {
+        
+        self.model = [[DSLModel alloc]init];
+        
+        [self.dataArray addObject:self.model];
+        
+    }
+
+
+
+}
+
+//获取标签的内容
+- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
+
+    string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+    if ([self.startTagFlag isEqualToString:@"proID"]) {
+        
+        [self.model setProID:string];
+    }
+    
+    if ([self.startTagFlag isEqualToString:@"proName"]) {
+        
+        [self.model setProName:string];
+        
+    }
+
+    
+    if ([self.startTagFlag isEqualToString:@"pinyin"]) {
+        
+        [self.model setPinyin:string];
+    }
+
+}
+
+//解析标签结束
+- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
+{
+
+    self.startTagFlag = nil;
+
+
+}
+</code></pre>
+<p><a href="https://github.com/dslcoding/JsonXml">相关demo</a></p> <p>没有啦，完啦。</p> <div class="entry-meta"> <br> <hr> <span class="entry-tags"></span> <span class="social-share"> <a href="https://www.facebook.com/sharer/sharer.php?u=/iOS-json&amp;xml/" title="Share on Facebook" class="tag"> <span class="term"><i class="fa fa-facebook-square"></i> Share</span> </a> <a href="https://twitter.com/intent/tweet?text=/iOS-json&amp;xml/" title="Share on Twitter" class="tag"> <span class="term"><i class="fa fa-twitter-square"></i> Tweet</span> </a> <a href="https://plus.google.com/share?url=/iOS-json&amp;xml/" title="Share on Google+" class="tag"> <span class="term"><i class="fa fa-google-plus-square"></i> +1</span> </a> </span> <div style="clear:both"></div> </div> </div> </div> </header> <!-- JS --> <script src="/assets/js/jquery-1.12.0.min.js"></script> <script src="/assets/js/jquery.dlmenu.min.js"></script> <script src="/assets/js/jquery.goup.min.js"></script> <script src="/assets/js/jquery.magnific-popup.min.js"></script> <script src="/assets/js/jquery.fitvid.min.js"></script> <script src="/assets/js/scripts.js"></script> <script type="text/javascript"> var disqus_shortname = 'taylantatli'; (function() { var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); })(); (function () { var s = document.createElement('script'); s.async = true; s.type = 'text/javascript'; s.src = '//' + disqus_shortname + '.disqus.com/count.js'; (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s); }()); </script> <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
 </noscript> <!-- MathJax --> <script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> </body> </html>

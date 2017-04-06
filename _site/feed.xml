@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-04-05T23:32:47+08:00</updated><id>/</id><title type="html">DSL’Blog</title><subtitle>我叫董诗磊,我就是一码农.欢迎来到我的博客</subtitle><entry><title type="html">2017-04-05 语录</title><link href="/morning-saying/" rel="alternate" type="text/html" title="2017-04-05 语录" /><published>2017-04-05T00:00:00+08:00</published><updated>2017-04-05T00:00:00+08:00</updated><id>/morning-saying</id><content type="html" xml:base="/morning-saying/">&lt;h1 id=&quot;2017-04-05-语录&quot;&gt;2017-04-05 语录&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-04-06T10:20:20+08:00</updated><id>/</id><title type="html">DSL’Blog</title><subtitle>我叫董诗磊,我就是一码农.欢迎来到我的博客</subtitle><entry><title type="html">2017-04-05 语录</title><link href="/morning-saying/" rel="alternate" type="text/html" title="2017-04-05 语录" /><published>2017-04-05T00:00:00+08:00</published><updated>2017-04-05T00:00:00+08:00</updated><id>/morning-saying</id><content type="html" xml:base="/morning-saying/">&lt;h1 id=&quot;2017-04-05-语录&quot;&gt;2017-04-05 语录&lt;/h1&gt;
 
 &lt;hr /&gt;
 &lt;h2 id=&quot;身安不如心安屋宽不如心宽以自然之道养自然之身以喜悦之身养喜悦之神有所畏惧是做人最基本的良心准则所谓快乐不是财富多而是欲望少做人人品为先才能为次做事明理为先勤奋为次人生要学会不抱怨不等待不盲从&quot;&gt;身安，不如心安；屋宽，不如心宽。以自然之道，养自然之身；以喜悦之身，养喜悦之神。有所畏惧，是做人最基本的良心准则。所谓快乐，不是财富多而是欲望少。做人，人品为先，才能为次；做事，明理为先，勤奋为次。人生要学会不抱怨，不等待，不盲从。&lt;/h2&gt;
@@ -577,7 +577,121 @@ NSLog(@&quot;extension===&quot;);
 &lt;h2 id=&quot;xml解析&quot;&gt;xml解析&lt;/h2&gt;
 &lt;h3 id=&quot;这个xml解析说实话我都已经把他给忘了因为从我工作第一天到现在没有遇见过xml解析不知道现在还有没有公司在使用不管有没有公司在使用今天是做记录的都要记录的&quot;&gt;这个xml解析说实话。我都已经把他给忘了，因为从我工作第一天到现在没有遇见过xml解析。不知道现在还有没有公司在使用。不管有没有公司在使用，今天是做记录的，都要记录的。&lt;/h3&gt;
 &lt;p&gt;首先对iOS的xml的概念做些了解，iOSxml解析主要有两种方式，SAX和DOM解析。SAX解析是标签读取，逐行解析数据，采用协议的方式获取数据。DOM解析就是把整个文档读入，将整个文档生成一个树结构，有节点，子节点等，然后对节点进行解析。&lt;/p&gt;
-&lt;h3 id=&quot;这里不做演示如果记不得啦自行搜索&quot;&gt;这里不做演示。如果记不得啦，自行搜索&lt;/h3&gt;
+&lt;h3 id=&quot;时间长啦我都忘了所以花了点时间准备一下下面是demo&quot;&gt;时间长啦。我都忘了。所以花了点时间准备一下，下面是demo&lt;/h3&gt;
+&lt;h3 id=&quot;1资源文件详见demo或者找一些json文件直接转成xml自行搜索&quot;&gt;1.资源文件详见demo，或者找一些json文件直接转成xml。自行搜索。&lt;/h3&gt;
+&lt;h3 id=&quot;2demo&quot;&gt;2.demo&lt;/h3&gt;
+&lt;h3 id=&quot;21&quot;&gt;2.1&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;//首先建立一个model类
+
+@interface DSLModel : NSObject
+
+@property (nonatomic ,copy) NSString *proID;
+
+@property (nonatomic ,copy) NSString *proName;
+
+@property (nonatomic ,copy) NSString *pinyin;
+
+@property (nonatomic ,copy) NSString *hits;
+
+@end
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;22-viewcontrol操作&quot;&gt;2.2 Viewcontrol操作&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;- (void)xml{
+    
+    //声明一个数组，用来存放解析的数据
+    self.dataArray = [[NSMutableArray alloc]init];
+    
+    NSString * path = [[NSBundle mainBundle]pathForResource:@&quot;DSL.xml&quot; ofType:nil];
+    
+
+    NSXMLParser * xmlParser = [[NSXMLParser alloc]initWithData:[NSData dataWithContentsOfFile:path]];
+    
+    xmlParser.delegate = self;
+    
+    [xmlParser parse];
+
+
+}
+
+
+#pragma mark NSXMLParserDelegate
+//文档读区开始
+- (void)parserDidStartDocument:(NSXMLParser *)parser
+{
+
+    NSLog(@&quot;parse start&quot;);
+    
+
+}
+
+//文档读取结束
+- (void)parserDidEndDocument:(NSXMLParser *)parser
+{
+    NSLog(@&quot;parser end ===%@&quot;,self.dataArray);
+    
+    [self.dataArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+       
+        DSLModel *model = (DSLModel*)obj;
+        
+        NSLog(@&quot;====%@===%@==%@&quot;,model.proID,model.pinyin,model.proName);
+        
+        
+    }];
+
+}
+
+//解析标签开始
+- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary&amp;lt;NSString *,NSString *&amp;gt; *)attributeDict{
+
+    self.startTagFlag = elementName;
+    
+    if ([elementName isEqualToString:@&quot;result&quot;]) {
+        
+        self.model = [[DSLModel alloc]init];
+        
+        [self.dataArray addObject:self.model];
+        
+    }
+
+
+
+}
+
+//获取标签的内容
+- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
+
+    string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+    if ([self.startTagFlag isEqualToString:@&quot;proID&quot;]) {
+        
+        [self.model setProID:string];
+    }
+    
+    if ([self.startTagFlag isEqualToString:@&quot;proName&quot;]) {
+        
+        [self.model setProName:string];
+        
+    }
+
+    
+    if ([self.startTagFlag isEqualToString:@&quot;pinyin&quot;]) {
+        
+        [self.model setPinyin:string];
+    }
+
+}
+
+//解析标签结束
+- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
+{
+
+    self.startTagFlag = nil;
+
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/dslcoding/JsonXml&quot;&gt;相关demo&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;没有啦，完啦。&lt;/p&gt;</content><summary type="html">Json&amp;amp;Xml</summary></entry><entry><title type="html">关于Today Extension</title><link href="/today-extension/" rel="alternate" type="text/html" title="关于Today Extension" /><published>2016-09-02T11:59:21+08:00</published><updated>2016-09-02T11:59:21+08:00</updated><id>/today-extension</id><content type="html" xml:base="/today-extension/">&lt;h1 id=&quot;关于today-extension&quot;&gt;关于Today Extension&lt;/h1&gt;
 
