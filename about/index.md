@@ -2,7 +2,7 @@
 layout: page
 title: 关于我
 tags: [关于我]
-date: 2017-05-06
+date: 2017-04-05
 comments: false
 ---
     
@@ -20,11 +20,16 @@ comments: false
 
 ### 工作经历
 - 弘浩明传科技（北京）股份有限公司（2016-3——至今）
+- iOS开发工程师，负责公司项目的主要模块开发。
 
 ### 主要技能
 - 熟悉 Objective-C, Swift 
 - 了解JavaScript
+- 熟练解析json和xml数据
+- 
 
+### 项目经验
+bingo
 
 
 

@@ -1,8 +1,8 @@
 ---
 layout: post-list
-title: All Posts
+title: 所有文章
 excerpt: "A List of Posts"
-comments: false
+comments: falsesuos
 ---
 
 ##  Hello World
