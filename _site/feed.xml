@@ -1,8 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-04-07T19:17:17+08:00</updated><id>/</id><title type="html">DSL’Blog</title><subtitle>我叫董诗磊,我就是一码农.欢迎来到我的博客</subtitle><entry><title type="html">2017-04-05 语录</title><link href="/morning-saying/" rel="alternate" type="text/html" title="2017-04-05 语录" /><published>2017-04-05T00:00:00+08:00</published><updated>2017-04-05T00:00:00+08:00</updated><id>/morning-saying</id><content type="html" xml:base="/morning-saying/">&lt;h1 id=&quot;2017-04-05-语录&quot;&gt;2017-04-05 语录&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-04-08T10:37:45+08:00</updated><id>/</id><title type="html">DSL’Blog</title><subtitle>我叫董诗磊,我就是一码农.欢迎来到我的博客</subtitle><entry><title type="html">2017-04-08 语录</title><link href="/morning-saying/" rel="alternate" type="text/html" title="2017-04-08 语录" /><published>2017-04-08T00:00:00+08:00</published><updated>2017-04-08T00:00:00+08:00</updated><id>/morning-saying</id><content type="html" xml:base="/morning-saying/">&lt;h1 id=&quot;2017-04-08-语录&quot;&gt;2017-04-08 语录&lt;/h1&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;总觉得自己还在过程中在一个需要时间来等待运气积累经历磨练的这个过程中大部分时间里面看到一些人们真实地活在我对生活的想象中的确是会偷偷地深深地羡慕也偶尔会掉入反复无常的自卑和失望里面但是始终内心深处存有希望也相信这些都只是过程同时也相信那些想象的成真我都值得&quot;&gt;总觉得自己还在过程中，在一个需要时间来等待、运气积累、经历磨练的这个过程中。大部分时间里面看到一些人们真实地活在我对生活的想象中，的确是会偷偷地，深深地羡慕。也偶尔会掉入反复无常的自卑和失望里面。但是始终，内心深处存有希望，也相信这些都只是过程，同时也相信那些想象的成真，我都值得。&lt;/h2&gt;
+
+&lt;h2 id=&quot;美好的一天从自然开始&quot;&gt;美好的一天从自然开始！&lt;/h2&gt;</content><summary type="html">2017-04-08 语录</summary></entry><entry><title type="html">2017-04-05 语录</title><link href="/morning-saying/" rel="alternate" type="text/html" title="2017-04-05 语录" /><published>2017-04-05T00:00:00+08:00</published><updated>2017-04-05T00:00:00+08:00</updated><id>/morning-saying</id><content type="html" xml:base="/morning-saying/">&lt;h1 id=&quot;2017-04-05-语录&quot;&gt;2017-04-05 语录&lt;/h1&gt;
 
 &lt;hr /&gt;
 &lt;h2 id=&quot;身安不如心安屋宽不如心宽以自然之道养自然之身以喜悦之身养喜悦之神有所畏惧是做人最基本的良心准则所谓快乐不是财富多而是欲望少做人人品为先才能为次做事明理为先勤奋为次人生要学会不抱怨不等待不盲从&quot;&gt;身安，不如心安；屋宽，不如心宽。以自然之道，养自然之身；以喜悦之身，养喜悦之神。有所畏惧，是做人最基本的良心准则。所谓快乐，不是财富多而是欲望少。做人，人品为先，才能为次；做事，明理为先，勤奋为次。人生要学会不抱怨，不等待，不盲从。&lt;/h2&gt;
-&lt;p&gt;美好的一天从自然开始！&lt;/p&gt;</content><summary type="html">2017-04-05 语录</summary></entry><entry><title type="html">iOS沙盒文件处理</title><link href="/sand-box/" rel="alternate" type="text/html" title="iOS沙盒文件处理" /><published>2017-04-02T11:59:21+08:00</published><updated>2017-04-02T11:59:21+08:00</updated><id>/sand-box</id><content type="html" xml:base="/sand-box/">&lt;p&gt;我最近在做项目的时候会用到关于沙盒的处理，以下是常用的操作：&lt;/p&gt;
+
+&lt;h2 id=&quot;美好的一天从自然开始&quot;&gt;美好的一天从自然开始！&lt;/h2&gt;</content><summary type="html">2017-04-05 语录</summary></entry><entry><title type="html">iOS沙盒文件处理</title><link href="/sand-box/" rel="alternate" type="text/html" title="iOS沙盒文件处理" /><published>2017-04-02T11:59:21+08:00</published><updated>2017-04-02T11:59:21+08:00</updated><id>/sand-box</id><content type="html" xml:base="/sand-box/">&lt;p&gt;我最近在做项目的时候会用到关于沙盒的处理，以下是常用的操作：&lt;/p&gt;
 
 &lt;h3 id=&quot;1-文件写入操作&quot;&gt;1. 文件写入操作&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;#pragma mark文件写入操作
@@ -735,45 +741,4 @@ NSLog(@&quot;extension===&quot;);
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/dslcoding/JsonXml&quot;&gt;相关demo&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;没有啦，完啦。&lt;/p&gt;</content><summary type="html">Json&amp;amp;Xml</summary></entry><entry><title type="html">SDWebImage之UIView+WebCacheOperation</title><link href="/iOS-SD-UIView+WebCacheOperation/" rel="alternate" type="text/html" title="SDWebImage之UIView+WebCacheOperation" /><published>2017-04-01T11:59:21+08:00</published><updated>2017-04-01T11:59:21+08:00</updated><id>/iOS-SD-UIView+WebCacheOperation</id><content type="html" xml:base="/iOS-SD-UIView+WebCacheOperation/">&lt;h1 id=&quot;sdwebimage之uiviewwebcacheoperation&quot;&gt;SDWebImage之UIView+WebCacheOperation&lt;/h1&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;这个类中有四个方法分别是&quot;&gt;这个类中有四个方法，分别是：&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;//简单翻译，个人的理解
-/**通过一个key建立一个imageoperation字典，后边可以根据key取出imageoperation
- *  Set the image load operation (storage in a UIView based dictionary)
- *
- *  @param operation the operation
- *  @param key       key for storing the operation
- */
-- (void)sd_setImageLoadOperation:(nullable id)operation forKey:(nullable NSString *)key;
-
-/**把当前的View的相关的operations全部取消
- *  Cancel all operations for the current UIView and key
- *
- *  @param key key for identifying the operations
- */
-- (void)sd_cancelImageLoadOperationWithKey:(nullable NSString *)key;
-
-/**根据key移除相应的operations
- *  Just remove the operations corresponding to the current UIView and key without cancelling them
- *
- *  @param key key for identifying the operations
- */
-- (void)sd_removeImageLoadOperationWithKey:(nullable NSString *)key;
-
-//声明一个字典
-- (SDOperationsDictionary *)operationDictionary {
-//使用runtime将self与这个字典关联起来，并通过loadOperationKey来获字典
-    SDOperationsDictionary *operations = objc_getAssociatedObject(self, &amp;amp;loadOperationKey);
-    if (operations) {
-        return operations;
-    }
-    operations = [NSMutableDictionary dictionary];
-    objc_setAssociatedObject(self, &amp;amp;loadOperationKey, operations, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    return operations;
-}
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;没有啦，完啦，欢迎勘误。&lt;/p&gt;</content><summary type="html">SDWebImage之UIView+WebCacheOperation</summary></entry></feed>
+&lt;p&gt;没有啦，完啦。&lt;/p&gt;</content><summary type="html">Json&amp;amp;Xml</summary></entry></feed>
