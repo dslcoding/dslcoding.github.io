@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-04-11T09:25:12+08:00</updated><id>/</id><title type="html">DSL’Blog</title><subtitle>我叫董诗磊,我就是一码农.欢迎来到我的博客</subtitle><entry><title type="html">2017-04-11 语录</title><link href="/morning-saying0411/" rel="alternate" type="text/html" title="2017-04-11 语录" /><published>2017-04-11T00:00:00+08:00</published><updated>2017-04-11T00:00:00+08:00</updated><id>/morning-saying0411</id><content type="html" xml:base="/morning-saying0411/">&lt;h1 id=&quot;2017-04-11-语录&quot;&gt;2017-04-11 语录&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-04-11T15:54:53+08:00</updated><id>/</id><title type="html">DSL’Blog</title><subtitle>我叫董诗磊,我就是一码农.欢迎来到我的博客</subtitle><entry><title type="html">2017-04-11 语录</title><link href="/morning-saying0411/" rel="alternate" type="text/html" title="2017-04-11 语录" /><published>2017-04-11T00:00:00+08:00</published><updated>2017-04-11T00:00:00+08:00</updated><id>/morning-saying0411</id><content type="html" xml:base="/morning-saying0411/">&lt;h1 id=&quot;2017-04-11-语录&quot;&gt;2017-04-11 语录&lt;/h1&gt;
 
 &lt;hr /&gt;
 &lt;h2 id=&quot;人要有一颗干净的心无论相貌无论着装心的通透是最美的不分贫富不分高低心的善良是最贵的身处俗世却不被俗世所染笑在脸上笑也在心上对人几分真便会换取几分心用情几多诚就会收获几多永恒眼睛纯净才能看见美丽的风景心灵干净才能拥有纯粹的感情一个人的心就是一个人的世界&quot;&gt;人，要有一颗干净的心。无论相貌，无论着装，心的通透是最美的。不分贫富，不分高低，心的善良是最贵的。身处俗世，却不被俗世所染。笑在脸上，笑也在心上。对人几分真，便会换取几分心。用情几多诚，就会收获几多永恒。眼睛纯净，才能看见美丽的风景。心灵干净，才能拥有纯粹的感情。一个人的心，就是一个人的世界。&lt;/h2&gt;
@@ -312,11 +312,11 @@ NSIndexPath*indexPath= [_tableViewindexPathForRowAtPoint:currentTouchPosition];
 &lt;p&gt;写了好几天的keyboarded extension， 说实话这个Extension 有点恶心。我感觉bug挺多的，也不能这样说，可能不经常出现的bug都让我遇到了。下面开始说我遇到到了那些问题，以及是怎么做的。&lt;/p&gt;
 
 &lt;p&gt;声明：本文章不做文档翻译，想看翻译自行查询.(网上的都是翻译不解决实际问题。我已经。。。。) &lt;a href=&quot;http://www.jianshu.com/p/987dfa9f3baf&quot;&gt;键盘扩展翻译&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;1-代码分享hostapp-与containapp代码分享和todayextortion-是一样的这里不做多说-todayextortion&quot;&gt;1 代码分享。hostApp 与containApp代码分享和TodayExtortion 是一样的。这里不做多说 TodayExtortion&lt;/h3&gt;
+&lt;h3 id=&quot;1-代码分享hostapp-与containapp代码分享和todayextortion-是一样的这里不做多说-todayextortion&quot;&gt;1 代码分享。hostApp 与containApp代码分享和TodayExtortion 是一样的。这里不做多说 &lt;a href=&quot;https://dslcoding.github.io/Today-Extension/&quot;&gt;TodayExtortion&lt;/a&gt;&lt;/h3&gt;
 
-&lt;h3 id=&quot;2数据共享hostapp-与containapp代码分享和todayextortion-是一样的不做多说-todayextortion&quot;&gt;2数据共享。hostApp 与containApp代码分享和TodayExtortion 是一样的。不做多说 TodayExtortion&lt;/h3&gt;
+&lt;h3 id=&quot;2数据共享hostapp-与containapp代码分享和todayextortion-是一样的不做多说-todayextortion&quot;&gt;2数据共享。hostApp 与containApp代码分享和TodayExtortion 是一样的。不做多说 &lt;a href=&quot;https://dslcoding.github.io/Today-Extension/&quot;&gt;TodayExtortion&lt;/a&gt;&lt;/h3&gt;
 
-&lt;h3 id=&quot;3申请idhostapp-与containapp代码分享和todayextortion-是一样的不做多说todayextortion&quot;&gt;3申请ID。hostApp 与containApp代码分享和TodayExtortion 是一样的。不做多说TodayExtortion&lt;/h3&gt;
+&lt;h3 id=&quot;3申请idhostapp-与containapp代码分享和todayextortion-是一样的不做多说todayextortion&quot;&gt;3申请ID。hostApp 与containApp代码分享和TodayExtortion 是一样的。不做多说&lt;a href=&quot;https://dslcoding.github.io/Today-Extension/&quot;&gt;TodayExtortion&lt;/a&gt;&lt;/h3&gt;
 
 &lt;p&gt;以上都是共同点，毕竟都是扩展。&lt;/p&gt;
 

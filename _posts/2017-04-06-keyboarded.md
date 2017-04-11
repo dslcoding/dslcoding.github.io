@@ -11,11 +11,11 @@ categories: jekyll update
 写了好几天的keyboarded extension， 说实话这个Extension 有点恶心。我感觉bug挺多的，也不能这样说，可能不经常出现的bug都让我遇到了。下面开始说我遇到到了那些问题，以及是怎么做的。
 
 声明：本文章不做文档翻译，想看翻译自行查询.(网上的都是翻译不解决实际问题。我已经。。。。) [键盘扩展翻译](http://www.jianshu.com/p/987dfa9f3baf)
-### 1 代码分享。hostApp 与containApp代码分享和TodayExtortion 是一样的。这里不做多说 TodayExtortion
+### 1 代码分享。hostApp 与containApp代码分享和TodayExtortion 是一样的。这里不做多说 [TodayExtortion](https://dslcoding.github.io/Today-Extension/)
 
-### 2数据共享。hostApp 与containApp代码分享和TodayExtortion 是一样的。不做多说 TodayExtortion 
+### 2数据共享。hostApp 与containApp代码分享和TodayExtortion 是一样的。不做多说 [TodayExtortion](https://dslcoding.github.io/Today-Extension/)
 
-### 3申请ID。hostApp 与containApp代码分享和TodayExtortion 是一样的。不做多说TodayExtortion
+### 3申请ID。hostApp 与containApp代码分享和TodayExtortion 是一样的。不做多说[TodayExtortion](https://dslcoding.github.io/Today-Extension/)
 
 以上都是共同点，毕竟都是扩展。
 
