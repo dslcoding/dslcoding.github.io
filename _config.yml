@@ -10,6 +10,7 @@ tiled_bg:           false   # Set this true if you want to tile your background 
 locale:            zh_CN
 url:           
 
+#启动命令bundle exec jekyll s
 # Jekyll
 permalink:          /:title/
 markdown:           kramdown
