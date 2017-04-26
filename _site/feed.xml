@@ -1,4 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-04-20T11:03:43+08:00</updated><id>/</id><title type="html">DSL’Blog</title><subtitle>我叫董诗磊,我就是一码农.欢迎来到我的博客</subtitle><entry><title type="html">2017-04-11 语录</title><link href="/morning-saying0411/" rel="alternate" type="text/html" title="2017-04-11 语录" /><published>2017-04-11T00:00:00+08:00</published><updated>2017-04-11T00:00:00+08:00</updated><id>/morning-saying0411</id><content type="html" xml:base="/morning-saying0411/">&lt;h1 id=&quot;2017-04-11-语录&quot;&gt;2017-04-11 语录&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-04-26T09:49:46+08:00</updated><id>/</id><title type="html">DSL’Blog</title><subtitle>我叫董诗磊,我就是一码农.欢迎来到我的博客</subtitle><entry><title type="html">2017-04-24 Mac小知识</title><link href="/Mac/" rel="alternate" type="text/html" title="2017-04-24 Mac小知识" /><published>2017-04-24T00:00:00+08:00</published><updated>2017-04-24T00:00:00+08:00</updated><id>/Mac</id><content type="html" xml:base="/Mac/">&lt;h1 id=&quot;1ftp服务器&quot;&gt;1.FTP服务器&lt;/h1&gt;
+
+&lt;h3 id=&quot;开启-ftp-server&quot;&gt;开启 FTP Server&lt;/h3&gt;
+&lt;h3 id=&quot;sudo--s-launchctl-load--w-systemlibrarylaunchdaemonsftpplist&quot;&gt;sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist&lt;/h3&gt;
+&lt;h3 id=&quot;关闭-ftp-server&quot;&gt;关闭 FTP Server&lt;/h3&gt;
+&lt;h3 id=&quot;sudo--s-launchctl-unload--w-systemlibrarylaunchdaemonsftpplist&quot;&gt;sudo -s launchctl unload -w /System/Library/LaunchDaemons/ftp.plist&lt;/h3&gt;
+&lt;h3 id=&quot;登录格式为-ftp用户名ip-每个设备必须是在同一个网络下&quot;&gt;登录格式为 ftp://用户名@ip (每个设备必须是在同一个网络下)&lt;/h3&gt;</content><summary type="html">1.FTP服务器</summary></entry><entry><title type="html">2017-04-11 语录</title><link href="/morning-saying0411/" rel="alternate" type="text/html" title="2017-04-11 语录" /><published>2017-04-11T00:00:00+08:00</published><updated>2017-04-11T00:00:00+08:00</updated><id>/morning-saying0411</id><content type="html" xml:base="/morning-saying0411/">&lt;h1 id=&quot;2017-04-11-语录&quot;&gt;2017-04-11 语录&lt;/h1&gt;
 
 &lt;hr /&gt;
 &lt;h2 id=&quot;人要有一颗干净的心无论相貌无论着装心的通透是最美的不分贫富不分高低心的善良是最贵的身处俗世却不被俗世所染笑在脸上笑也在心上对人几分真便会换取几分心用情几多诚就会收获几多永恒眼睛纯净才能看见美丽的风景心灵干净才能拥有纯粹的感情一个人的心就是一个人的世界&quot;&gt;人，要有一颗干净的心。无论相貌，无论着装，心的通透是最美的。不分贫富，不分高低，心的善良是最贵的。身处俗世，却不被俗世所染。笑在脸上，笑也在心上。对人几分真，便会换取几分心。用情几多诚，就会收获几多永恒。眼睛纯净，才能看见美丽的风景。心灵干净，才能拥有纯粹的感情。一个人的心，就是一个人的世界。&lt;/h2&gt;
@@ -581,17 +587,4 @@ NSLog(@&quot;extension===&quot;);
 
 }
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/dslcoding/Category-Extension&quot;&gt;相关demo&lt;/a&gt;&lt;/p&gt;</content><summary type="html">使用类别(Category)和扩展(Extension)</summary></entry><entry><title type="html">开发随手记(二)</title><link href="/iOS-note2/" rel="alternate" type="text/html" title="开发随手记(二)" /><published>2017-04-01T11:59:21+08:00</published><updated>2017-04-01T11:59:21+08:00</updated><id>/iOS-note2</id><content type="html" xml:base="/iOS-note2/">&lt;h1 id=&quot;开发随手记二&quot;&gt;开发随手记(二)&lt;/h1&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;在项目中积累中的错误&quot;&gt;在项目中积累中的错误&lt;/h1&gt;
-
-&lt;p&gt;1.ld: can’t link with a main executable file ‘/Users/apple/Library/Developer/Xcode/DerivedData/LePaiDemo-ftsuwgzvjdjwzghgkuefbzvdkvey/Build/Products/Debug-iphoneos/LePaiDemo.app/LePaiDemo’ for architecture armv7clang: error: unable to execute command: Segmentation fault: 11clang: error: linker command failed due to signal (use -v to see invocation)
-  &lt;img src=&quot;http://ac-l1vX02tC.clouddn.com/32763884c73603e8276e.png&quot; alt=&quot;&quot; /&gt;
-    把Architectures的debug改为NO就可以&lt;/p&gt;
-
-&lt;p&gt;2.Code Sign error: Provisioning profile does not match bundle identifier: The provisioning profile specified in your build settings (“ColorKey Distribution”) has an AppID of “com.iAppsLLC.ColorKey” which does not match your bundle identifier “ com.iAppsLLC.ColorKey.MyKeyBoard”.
-解决方法是：在build Settings 里有一项 Packaging项  里边有个Product Bundle Identifier  需要与plist文件里的Bundle Identifier 保持一致。最后修改完成以后clean一下充跑吧。如果证书，App ID ，以及描述文件没有设置错误，那就应该没有问题了。&lt;/p&gt;
-
-&lt;p&gt;3.因为有些第三方库不支持bitcode。 关闭BItcode&lt;/p&gt;</content><summary type="html">开发随手记(二)</summary></entry></feed>
+&lt;p&gt;&lt;a href=&quot;https://github.com/dslcoding/Category-Extension&quot;&gt;相关demo&lt;/a&gt;&lt;/p&gt;</content><summary type="html">使用类别(Category)和扩展(Extension)</summary></entry></feed>
