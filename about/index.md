@@ -5,13 +5,13 @@ tags: [关于我]
 date: 2017-04-05
 comments: false
 ---
-    
+
 ##  关于我
 - 姓名：董诗磊
 - 邮箱：945846242@qq.com
-- Blog：[dslcoding.github.io](dslcoding.github.io)
-- Github:[https://github.com/dslcoding](https://github.com/dslcoding)
-- 开发经验：iOS开发
+- Blog：[dslcoding.github.io](https://dslcoding.github.io/)
+- Github:[github.com/dslcoding](https://github.com/dslcoding)
+- 职位：iOS开发工程师
 
 ### 教育经历
 - 学历：专科
@@ -24,7 +24,7 @@ comments: false
 - iOS开发工程师，负责公司项目的主要模块开发(框架搭建以及会场功能)。
 
 ### 主要技能
-1. 熟悉Objective-C, Swift 
+1. 熟悉Objective-C, Swift
 2. 了解JavaScript,HTML5
 3. 熟悉MacOS,Xcode及iPhoneSDK开发环境, 熟练运用各种UI控件以,能够处理各种UI布局操作
 4. 熟悉掌握内存管理机制,熟练掌握ARC
@@ -32,12 +32,12 @@ comments: false
 6. 熟练使用SQLite数据库,NSUserDefaults等数据存储
 7. 熟练使用MVC,了解MVVM
 8. 熟练使用Block,KVO,KVC,Notification,代理,单例模式等
-9. 熟练使用环信快速集成聊天功能,熟练使用高德地图
-了解百度地图以及leadCloud后端云还有bmob后端云
+9. 熟练使用环信快速集成聊天功能,熟练使用高德地图了解百度地图以及leadCloud后端云还有Bmob后端云
 10. 熟练使用CocoaPods,并能使用SVN,Git作为版本控制工具
 11. 熟悉项目的开发流程,真机测试还有上架流程,已经完成多个上架的项目
- 
+
 ### 额外技能
+
 -  了解PS以及Sketch
 
 ## 项目经验
@@ -46,17 +46,20 @@ comments: false
 - 开发语言：Objective-C
 - 开发人员：两人合作完成
 - 开发周期：一期4个月，二期3个月
-- 项目简介：Bingo是一款基于企业内外部通讯录的移动通信软件，集商务电话、鸡毛信、多方会议、录音
-          存储等功能于一体，旨在降低企业对内对外沟通成本，提高协作效率，为企业搭建高效沟通和管理的统一平台
+- 项目简介：Bingo是一款基于企业内外部通讯录的移动通信软件，集商务电话、鸡毛信、多方会议、录音存储等功能于一体，旨在降低企业对内对外沟通成本，提高协作效率，为企业搭建
+          高效沟通和管理的统一平台
 - 主要界面：
 - 1.电话界面：  该界面呈现出应用的主要功能，比如鸡毛信，拨号盘，即时会议等功能
 - 2.通讯录界面：企业通讯录，方便企业的内的联系与管理
 - 3.我的界面：  分享，设置，问题反馈
 
 ### 以下是我负责的界面
-![电话界面 ](http://ac-l1vx02tc.clouddn.com/ac8adbb8888af87296a1.gif) ![鸡毛信界面](http://ac-l1vx02tc.clouddn.com/d2309922e8d4588e296b.gif)![我的界面](http://ac-l1vx02tc.clouddn.com/3fab9f8dafd8f0dc25d8.gif)
 
-[Bingo – 移动改变工作](https://itunes.apple.com/cn/app/gui-zu-nu/id1225459154?mt=8)
+![会议界面](http://ac-l1vx02tc.clouddn.com/ac8adbb8888af87296a1.gif)
+
+- [鸡毛信](https://github.com/dslcoding/BlogPic/blob/master/message.gif)
+- [我](https://github.com/dslcoding/BlogPic/blob/master/setting.gif)
+- [Bingo – 移动改变工作](https://itunes.apple.com/cn/app/gui-zu-nu/id1225459154?mt=8)
 
 ### 2. 圈圈汉语词典
 - 开发工具：Mac OS／Xcode6.4／iPhone
@@ -72,11 +75,15 @@ comments: false
 - 4.个人界面：自己的账户信息，新功能预告，问题反馈，还有好评
 
 ### 以下是我负责的界面
+![搜索界面](http://ac-l1vx02tc.clouddn.com/f6c268ecd9dbf8ae7cc5.gif)
 
-[圈圈汉语词典](https://itunes.apple.com/cn/app/gui-zu-nu/id1144117036?mt=8)
+- [首页](https://github.com/dslcoding/BlogPic/blob/master/serche.gif)
+- [最新](https://github.com/dslcoding/BlogPic/blob/master/timeline.gif)
+- [我]  (https://github.com/dslcoding/BlogPic/blob/master/dicSetting.gif)
+- [圈圈汉语词典](https://itunes.apple.com/cn/app/gui-zu-nu/id1144117036?mt=8)
 
 ### 自我评价
-   
+
    首先感谢您阅读我的简历。截止目前我已经工作一年多了，在平常的工作中也积累了很多的经验。
 喜欢工作强度大的工作，喜欢自觉加班。喜欢提前完成分配的任务。
    个人乐观健谈，风趣幽默。喜欢与人交流，善于钻研问题。对待工作热情，喜欢独立完成分析和解决工作
@@ -88,6 +95,3 @@ comments: false
 喜欢打英魂之刃。喜欢玩帝国时代以及红色警戒2共和国之辉等策略游戏。没了。
 
 ### 感谢您的阅读。
- 
-
-
