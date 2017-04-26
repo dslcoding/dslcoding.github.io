@@ -54,7 +54,7 @@ comments: false
 - 3.我的界面：  分享，设置，问题反馈
 
 ### 以下是我负责的界面
-![电话界面 ](https://github.com/dslcoding/BlogPic/blob/master/meetting.gif) ![鸡毛信界面](https://github.com/dslcoding/BlogPic/blob/master/message.gif)![我的界面](https://github.com/dslcoding/BlogPic/blob/master/setting.gif)
+![电话界面 ](http://ac-l1vx02tc.clouddn.com/ac8adbb8888af87296a1.gif) ![鸡毛信界面](http://ac-l1vx02tc.clouddn.com/d2309922e8d4588e296b.gif)![我的界面](http://ac-l1vx02tc.clouddn.com/3fab9f8dafd8f0dc25d8.gif)
 
 [Bingo – 移动改变工作](https://itunes.apple.com/cn/app/gui-zu-nu/id1225459154?mt=8)
 
