@@ -57,8 +57,8 @@ comments: false
 
 ![会议界面](http://ac-l1vx02tc.clouddn.com/ac8adbb8888af87296a1.gif)
 
-- [鸡毛信](https://github.com/dslcoding/BlogPic/blob/master/message.gif)
-- [我](https://github.com/dslcoding/BlogPic/blob/master/setting.gif)
+- [鸡毛信](http://ac-l1vx02tc.clouddn.com/d2309922e8d4588e296b.gif)
+- [我](http://ac-l1vx02tc.clouddn.com/7064101c9018be51673f.gif)
 - [Bingo – 移动改变工作](https://itunes.apple.com/cn/app/gui-zu-nu/id1225459154?mt=8)
 
 ### 2. 圈圈汉语词典
@@ -77,9 +77,9 @@ comments: false
 ### 以下是我负责的界面
 ![搜索界面](http://ac-l1vx02tc.clouddn.com/f6c268ecd9dbf8ae7cc5.gif)
 
-- [首页](https://github.com/dslcoding/BlogPic/blob/master/serche.gif)
-- [最新](https://github.com/dslcoding/BlogPic/blob/master/timeline.gif)
-- [我](https://github.com/dslcoding/BlogPic/blob/master/dicSetting.gif)
+- [首页](http://ac-l1vX02tC.clouddn.com/f6c268ecd9dbf8ae7cc5.gif)
+- [最新](http://ac-l1vx02tc.clouddn.com/5b160e5e7a308dc023ea.gif)
+- [我](http://ac-l1vx02tc.clouddn.com/f081280bde955fbee2bf.gif)
 - [圈圈汉语词典](https://itunes.apple.com/cn/app/gui-zu-nu/id1144117036?mt=8)
 
 ### 自我评价
