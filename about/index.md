@@ -79,7 +79,7 @@ comments: false
 
 - [首页](https://github.com/dslcoding/BlogPic/blob/master/serche.gif)
 - [最新](https://github.com/dslcoding/BlogPic/blob/master/timeline.gif)
-- [我]  (https://github.com/dslcoding/BlogPic/blob/master/dicSetting.gif)
+- [我](https://github.com/dslcoding/BlogPic/blob/master/dicSetting.gif)
 - [圈圈汉语词典](https://itunes.apple.com/cn/app/gui-zu-nu/id1144117036?mt=8)
 
 ### 自我评价
