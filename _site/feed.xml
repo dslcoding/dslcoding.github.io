@@ -1,4 +1,122 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-04-26T12:54:05+08:00</updated><id>/</id><title type="html">DSL’Blog</title><subtitle>我叫董诗磊,我就是一码农.欢迎来到我的博客</subtitle><entry><title type="html">2017-04-24 Mac小知识</title><link href="/Mac/" rel="alternate" type="text/html" title="2017-04-24 Mac小知识" /><published>2017-04-24T00:00:00+08:00</published><updated>2017-04-24T00:00:00+08:00</updated><id>/Mac</id><content type="html" xml:base="/Mac/">&lt;h1 id=&quot;1ftp服务器&quot;&gt;1.FTP服务器&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-04-27T14:38:38+08:00</updated><id>/</id><title type="html">DSL’Blog</title><subtitle>我叫董诗磊,我就是一码农.欢迎来到我的博客</subtitle><entry><title type="html">2017-04-24 iOS小知识小记</title><link href="/iOSDevelop/" rel="alternate" type="text/html" title="2017-04-24 iOS小知识小记" /><published>2017-04-24T00:00:00+08:00</published><updated>2017-04-24T00:00:00+08:00</updated><id>/iOSDevelop</id><content type="html" xml:base="/iOSDevelop/">&lt;h2 id=&quot;nsnotification&quot;&gt;NSNotification&lt;/h2&gt;
+
+&lt;p&gt;1.iOS8及以前，NSNotificationCenter持有的是观察者的unsafe_unretained指针（可能是为了兼容老版本），这样，在观察者回收的时候未removeOberser，而后再进行post操作，则会向一段被回收的区域发送消息，所以出现野指针crash。而iOS9以后，unsafe_unretained改成了weak指针，即使dealloc的时候未removeOberser，再进行post操作，则会向nil发送消息，所以没有任何问题。&lt;/p&gt;
+
+&lt;p&gt;2.postNotification:总是会卡住当前线程，待observer执行（如不特殊处理selector也会在postNotification:所在线程执行）结束之后才会继续往下执行。所以是同步的。&lt;/p&gt;
+
+&lt;p&gt;3.postNotification:必须是在主线程。所以不是在主线程的时候，有两种方式可以解决。这里用的是block的方式&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+[[NSNotificationCenter defaultCenter] addObserverForName:@&quot;dsl&quot; object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+        NSLog(@&quot;current thread %@ 刷新UI&quot;, [NSThread currentThread]);
+        // 刷新UI ...
+    }];
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/Notifications/Introduction/introNotifications.html#//apple_ref/doc/uid/10000043-SW1&quot;&gt;苹果文档&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;ios枚举&quot;&gt;iOS枚举&lt;/h2&gt;
+&lt;p&gt;1.NS_OPTIONS&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;typedef NS_OPTIONS(NSUInteger, UISwipeGestureRecognizerDirection) {
+    UISwipeGestureRecognizerDirectionNone = 0,  //值为0
+    UISwipeGestureRecognizerDirectionRight = 1 &amp;lt;&amp;lt; 0,  //值为2的0次方
+    UISwipeGestureRecognizerDirectionLeft = 1 &amp;lt;&amp;lt; 1,  //值为2的1次方
+    UISwipeGestureRecognizerDirectionUp = 1 &amp;lt;&amp;lt; 2,  //值为2的2次方
+    UISwipeGestureRecognizerDirectionDown = 1 &amp;lt;&amp;lt; 3  //值为2的3次方
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;形式typedef NS_OPTIONS(NSUInteger,opttions ) {&lt;/p&gt;
+
+&lt;p&gt;}官方推荐的。NSUInteger这个枚举值是固定的，opttions这个是枚举类型。可以自定义的。&lt;/p&gt;
+
+&lt;p&gt;2.NS_ENUM&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;typedef NS_ENUM(NSInteger, NSWritingDirection) {
+    NSWritingDirectionNatural = -1,  //值为-1    
+    NSWritingDirectionLeftToRight = 0,  //值为0
+    NSWritingDirectionRightToLeft = 1  //值为1       
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;形式typedef NS_ENUM(NSInteger,opttions ) {&lt;/p&gt;
+
+&lt;p&gt;}官方推荐的。NSInteger这个枚举值是固定的，opttions这个是枚举类型。可以自定义的。&lt;/p&gt;
+
+&lt;p&gt;3.总结两者的不同：1.枚举值是不一样的一个是NSUInteger，一个是NSInteger
+             2.如果在一个需要枚举值的地方需要多个枚举值，那么就需要用NS_OPTIONS，比如：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
+entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;否则就要用NS_ENUM 只能存在一个枚举值。换句话说就是多选就是options(options本来就有选择的意思)，要是单选的就用ENUM。没了。&lt;/p&gt;
+
+&lt;h2 id=&quot;nsinteger-和-nsuinteger&quot;&gt;NSInteger 和 NSUInteger&lt;/h2&gt;
+
+&lt;p&gt;NSInteger 是根据系统的位数来判断的是32位就是int，64是long，&lt;/p&gt;
+
+&lt;p&gt;NSUInteger 是一个非零的整数&lt;/p&gt;
+
+&lt;h2 id=&quot;weak和assign有什么区别&quot;&gt;weak和assign有什么区别？&lt;/h2&gt;
+&lt;p&gt;1.week主要是修饰对象类型，是弱引用比如修饰delegate，对象释放之后就会被置nil
+2.assig是修饰基本的数据类型。&lt;/p&gt;
+
+&lt;h2 id=&quot;ios推送和jpush&quot;&gt;iOS推送和JPush&lt;/h2&gt;
+
+&lt;p&gt;1.iOS推送
+&lt;img src=&quot;http://ac-l1vX02tC.clouddn.com/d5e0b242795d613c6a0b.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;1.APP向苹果服务器获取token&lt;/li&gt;
+  &lt;li&gt;2.苹果服务器把token发送给APP&lt;/li&gt;
+  &lt;li&gt;3.APP再把token发送自己的服务器&lt;/li&gt;
+  &lt;li&gt;4.APPServer把推送的消息和token一起发送给苹果的服务器&lt;/li&gt;
+  &lt;li&gt;5.苹果的服务器在消息推送给APP&lt;/li&gt;
+  &lt;li&gt;流程就是这个样子的&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;2.JPush
+&lt;img src=&quot;http://ac-l1vx02tc.clouddn.com/3e9566b834ebbe0f229e.png&quot; alt=&quot;&quot; /&gt;
+这个图片是我根据极光推送文档中找的，这里就是总结一下。加深对极光推送的理解。&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;1.这条线路走的是苹果的服务器，有JPush推送给苹果的服务器，再有苹果的服务器推送给APP&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;2.这条线路走的是应用内消息，这个其实就是长链接。当APP启动的时候，APP中的JPushSDK与与JPush服务器保持长链接，然后直接推送给APP&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.jiguang.cn/jpush/client/iOS/ios_sdk/&quot;&gt;JPushSDK&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://ac-l1vx02tc.clouddn.com/f7074b1795b79fb747e9.pdf&quot;&gt;「转载」《微言（官方版）》iOS源码分享–极光推送实践篇 - 分享 - 极光社区&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://ac-l1vX02tC.clouddn.com/78b69ececf24ba1ca5d6.pdf&quot;&gt;详解极光推送的 4 种消息形式—— iOS 篇 - 分享 - 极光社区&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;sdk和api&quot;&gt;SDK和API&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;API是一种应用程序与操作系统交互操作的接口规范。&lt;/li&gt;
+  &lt;li&gt;SDK是应用程序的一种开发包，当然里面会将API进行封装，以方便应用程序的开发。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;sql中常用的语句&quot;&gt;SQL中常用的语句&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1.检查是否存在某条数据(这个问题曾经苦恼我了很久，现在我解决了)&lt;/li&gt;
+  &lt;li&gt;解决方法：
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; NSInteger count = [db intForQuery:@&quot;SELECT COUNT(*) FROM DSLCY WHERE name = ?&quot;,deptId];
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;2.去除重复的内容
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;delete from DSL_ZI where id not in (select min(id) from DSL_ZI group by name )
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;3.sql把一个表某字段复制到另一个表&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;update zi SET logogriph = (select mimian from zimi where zi.name = zimi.name)
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content><summary type="html">NSNotification</summary></entry><entry><title type="html">2017-04-24 Mac小知识</title><link href="/Mac/" rel="alternate" type="text/html" title="2017-04-24 Mac小知识" /><published>2017-04-24T00:00:00+08:00</published><updated>2017-04-24T00:00:00+08:00</updated><id>/Mac</id><content type="html" xml:base="/Mac/">&lt;h1 id=&quot;1ftp服务器&quot;&gt;1.FTP服务器&lt;/h1&gt;
 
 &lt;h3 id=&quot;开启-ftp-server&quot;&gt;开启 FTP Server&lt;/h3&gt;
 &lt;h3 id=&quot;sudo--s-launchctl-load--w-systemlibrarylaunchdaemonsftpplist&quot;&gt;sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist&lt;/h3&gt;
@@ -405,186 +523,4 @@ for (NSURL *url in urls) {
 上面的实例就是用到了@autoreleasepool的循环，创建大量的临时对象。利用@autorelease可以及时对内存进行释放。&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;没有啦，完啦&lt;/p&gt;</content><summary type="html">内存管理</summary></entry><entry><title type="html">使用类别(Category)和扩展(Extension)</title><link href="/Category-Extension/" rel="alternate" type="text/html" title="使用类别(Category)和扩展(Extension)" /><published>2017-04-01T11:59:21+08:00</published><updated>2017-04-01T11:59:21+08:00</updated><id>/Category-Extension</id><content type="html" xml:base="/Category-Extension/">&lt;h1 id=&quot;使用类别category和扩展extension&quot;&gt;使用类别(Category)和扩展(Extension)&lt;/h1&gt;
-
-&lt;hr /&gt;
-
-&lt;h1 id=&quot;1类别&quot;&gt;1.类别&lt;/h1&gt;
-&lt;h3 id=&quot;先建立一个类别项目我这里就直接给vc加一个类别名字是nslog记得选category而且category是有m文件的&quot;&gt;先建立一个类别项目，我这里就直接给VC加一个类别。名字是NSLog。记得选Category，而且Category是有.m文件的。&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;http://ac-l1vX02tC.clouddn.com/b76a58836532443c945d.png&quot; alt=&quot;&quot; /&gt;
-&lt;img src=&quot;http://ac-l1vX02tC.clouddn.com/4171593997bcac5e30eb.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-&lt;h1 id=&quot;1先测试&quot;&gt;1.先测试：&lt;/h1&gt;
-&lt;h2 id=&quot;11添加方法&quot;&gt;1.1添加方法&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;//先在.h文件中添加一个方法
-- (void)printStr:(NSString*)str;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;@implementationViewController (NSLog)
-
-//在.m中实现
-
-- (void)printStr:(NSString*)str
-
-{
-
-NSLog(@&quot;====print==%@&quot;,str);
-
-}
-
-@end
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;//在VC中调用类别的方法,运行
-
-//[self printStr:@&quot;我叫董诗磊,我就是一码农&quot;];
-
-//成功输出
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&quot;12添加属性&quot;&gt;1.2添加属性&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;@interfaceViewController (NSLog)
-
-//在没有使用runtim建立关联引用建立的字符串
-
-@property(nonatomic,copy)NSString* dsl;
-
-////先添加一个方法
-
-//- (void)printStr:(NSString *)str;
-
-@end
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;//在VC中做赋值操作，，，，，然后成功崩溃，
-
-self.dsl=@&quot;我叫董诗磊,我就是一码农&quot;;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;崩溃的原因
-&lt;img src=&quot;http://ac-l1vX02tC.clouddn.com/8364ed8677d3c03fa6af.png&quot; alt=&quot;&quot; /&gt;
-不识别set方法。这里就可以说明是可以添加属性，但是不会自动生成get,set方法。不过这里可以使用runtime建立关联。
-如果有这方面的需求可以用runtime具体的下面&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;导入头文件#import &amp;lt;objc/runtime.h&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;.h
-
-@interfaceViewController (NSLog)
-
-//声明属性
-
-@property(nonatomic,copy)NSString* dsl;
-
-@end
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;.m
-
-static NSString*dslKEY =@&quot;dslKEY&quot;;
-
-@implementationViewController (NSLog)
-
-- (void)printStr:(NSString*)str
-
-{
-
-NSLog(@&quot;====print==%@&quot;,str);
-
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;.m
-
-- (void)setDsl:(NSString*)dsl
-
-{
-
-//四个参数原对象，关联时的用来标记的是哪个属性key(可能要添加多个属性)
-
-objc_setAssociatedObject(self, &amp;amp;dslKEY, dsl,OBJC_ASSOCIATION_COPY);
-
-}
-- (NSString*)dsl
-
-{
-
-returnobjc_getAssociatedObject(self,&amp;amp;dslKEY);
-
-}
-//在VC中测试输出字符串字符串
-
-self.dsl=@&quot;我叫董诗磊,我就是一码农&quot;;
-
-NSLog(@&quot;====use runtime ===%@&quot;,self.dsl);
-
-成功输出
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;以上都是Category添加属性和方法
-我的理解是：&lt;/p&gt;
-
-&lt;h1 id=&quot;11类别就是扩展类可以添加方法不能添加成员变量&quot;&gt;1.1类别就是扩展类可以添加方法。不能添加成员变量。&lt;/h1&gt;
-
-&lt;h3 id=&quot;12如果添加property的话编译是没有问题但是运行的时候就会报错的也可以用runtime来关联引用实现添加属性&quot;&gt;1.2如果添加@property的话编译是没有问题。但是运行的时候就会报错的。也可以用runtime来关联引用实现添加属性。&lt;/h3&gt;
-
-&lt;h3 id=&quot;13如果类别的方法和原类的方法名重复的话优先调用类别的方法原类的犯法会忽略尽量别这样&quot;&gt;1.3如果类别的方法和原类的方法名重复的话，优先调用类别的方法。原类的犯法会忽略。尽量别这样&lt;/h3&gt;
-
-&lt;h3 id=&quot;14继承和类别&quot;&gt;1.4继承和类别&lt;/h3&gt;
-
-&lt;h3 id=&quot;141关于继承和类别我的理解是如果这个类有很多子类的时候只需要扩展这个类不影响到原有的代码继承较好要是紧紧扩展方法的话分类更好&quot;&gt;1.4.1关于继承和类别我的理解是如果这个类有很多子类的时候，只需要扩展这个类不影响到原有的代码继承较好，要是紧紧扩展方法的话，分类更好。&lt;/h3&gt;
-&lt;h3 id=&quot;142类别主要是针对系统提供的一些类系统本身是不提供继承去扩展方法的继承子类继承父类而类别不能扩展属性runtime可以方法也不能重复一旦重复就会替换原有的方法没了&quot;&gt;1.4.2类别主要是针对系统提供的一些类，系统本身是不提供继承去扩展方法的。继承子类继承父类，而类别不能扩展属性(runtime可以)，方法也不能重复，一旦重复。就会替换原有的方法。没了&lt;/h3&gt;
-&lt;hr /&gt;
-&lt;h1 id=&quot;2扩展&quot;&gt;2.扩展&lt;/h1&gt;
-
-&lt;h1 id=&quot;扩展是类别的一种特例也是匿名类可以声明属性和方法声明的方法要实现&quot;&gt;扩展是类别的一种特例。也是匿名类，可以声明属性和方法，声明的方法要实现&lt;/h1&gt;
-
-&lt;h3 id=&quot;21先测试给vc加extension&quot;&gt;2.1先测试给VC加Extension&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;http://ac-l1vX02tC.clouddn.com/8fe3dce41b2b974be9fd.png&quot; alt=&quot;&quot; /&gt;
-&lt;img src=&quot;http://ac-l1vX02tC.clouddn.com/55f2357045a9e0e3a59b.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;实现方法1就是上面的那一种建立一个extensionh文件然后声明&quot;&gt;实现方法1.就是上面的那一种，建立一个Extension.h文件然后声明&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;#import&quot;ViewController.h&quot;
-
-@interfaceViewController ()
-
-@property(nonatomic,copy) NSString * vcExten;
-
-- (void)test;
-
-@end
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;- (void)viewDidLoad {
-
-[self test];
-
-//扩展在ViewDidLoad里面实现并调试
-
-self.vcExten=@&quot;exten&quot;;
-
-NSLog(@&quot;====use exten ==%@&quot;,self.vcExten);
-
-}
-
-- (void)test
-
-{
-
-NSLog(@&quot;extension===&quot;);
-
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&quot;实现方法2就是上面的那一种建立一个extensionh文件然后声明&quot;&gt;实现方法2.就是上面的那一种，建立一个Extension.h文件然后声明&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;#import&quot;ViewController.h&quot;
-
-#import&quot;ViewController+NSLog.h&quot;
-
-#import&quot;ViewController_VCExten.h&quot;
-
-这个@interface ......@end本身就是扩展
-
-@interfaceViewController()
-
-@end
-
-@implementationViewController
-
-- (void)viewDidLoad {
-
-[superviewDidLoad];
-
-
-
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/dslcoding/Category-Extension&quot;&gt;相关demo&lt;/a&gt;&lt;/p&gt;</content><summary type="html">使用类别(Category)和扩展(Extension)</summary></entry></feed>
+&lt;p&gt;没有啦，完啦&lt;/p&gt;</content><summary type="html">内存管理</summary></entry></feed>
