@@ -54,8 +54,8 @@ typedef NS_ENUM(NSInteger, NSWritingDirection) {
 
 }官方推荐的。NSInteger这个枚举值是固定的，opttions这个是枚举类型。可以自定义的。
 
-3.总结两者的不同：1.枚举值是不一样的一个是NSUInteger，一个是NSInteger
-             2.如果在一个需要枚举值的地方需要多个枚举值，那么就需要用NS_OPTIONS，比如：
+3.总结两者的不同：(1).枚举值是不一样的一个是NSUInteger，一个是NSInteger
+            (2).如果在一个需要枚举值的地方需要多个枚举值，那么就需要用NS_OPTIONS，比如：
 ```
 JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
 entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound;
@@ -116,3 +116,13 @@ delete from DSL_ZI where id not in (select min(id) from DSL_ZI group by name )
 update zi SET logogriph = (select mimian from zimi where zi.name = zimi.name)
 
 ```
+## iOS视图控制器的生命周期
+- 1.loadView 检测xib文件，如果没有相应的xib文件就直接返回一个空的view
+- 2.viewDidLoad loadView执行之后在执行viewDidLoad，而且这个方法只是执行一次，以后不会在执行。还有就是加载子控件。
+- 4.viewWillAppear   视图将出现在屏幕之前，马上这个视图就会被展现在屏幕上了
+- 5.viewDidAppear   视图已在屏幕上渲染完成
+- 6.viewillDisaAppear  视图将要消失
+- 7.viewDidDisAppear   视图已经消失
+- 8.viewDidUnload 该方法已经被抛弃不作解释
+- 9.delloc 释放对象
+- 10.didReceiveMemoryWarning 内存不够用的时候这个方法会释放一些不用的视图对象

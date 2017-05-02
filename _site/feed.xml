@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-04-27T14:38:38+08:00</updated><id>/</id><title type="html">DSL’Blog</title><subtitle>我叫董诗磊,我就是一码农.欢迎来到我的博客</subtitle><entry><title type="html">2017-04-24 iOS小知识小记</title><link href="/iOSDevelop/" rel="alternate" type="text/html" title="2017-04-24 iOS小知识小记" /><published>2017-04-24T00:00:00+08:00</published><updated>2017-04-24T00:00:00+08:00</updated><id>/iOSDevelop</id><content type="html" xml:base="/iOSDevelop/">&lt;h2 id=&quot;nsnotification&quot;&gt;NSNotification&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2017-05-02T09:37:51+08:00</updated><id>/</id><title type="html">DSL’Blog</title><subtitle>我叫董诗磊,我就是一码农.欢迎来到我的博客</subtitle><entry><title type="html">2017-04-24 iOS小知识小记</title><link href="/iOSDevelop/" rel="alternate" type="text/html" title="2017-04-24 iOS小知识小记" /><published>2017-04-24T00:00:00+08:00</published><updated>2017-04-24T00:00:00+08:00</updated><id>/iOSDevelop</id><content type="html" xml:base="/iOSDevelop/">&lt;h2 id=&quot;nsnotification&quot;&gt;NSNotification&lt;/h2&gt;
 
 &lt;p&gt;1.iOS8及以前，NSNotificationCenter持有的是观察者的unsafe_unretained指针（可能是为了兼容老版本），这样，在观察者回收的时候未removeOberser，而后再进行post操作，则会向一段被回收的区域发送消息，所以出现野指针crash。而iOS9以后，unsafe_unretained改成了weak指针，即使dealloc的时候未removeOberser，再进行post操作，则会向nil发送消息，所以没有任何问题。&lt;/p&gt;
 
@@ -45,8 +45,8 @@
 
 &lt;p&gt;}官方推荐的。NSInteger这个枚举值是固定的，opttions这个是枚举类型。可以自定义的。&lt;/p&gt;
 
-&lt;p&gt;3.总结两者的不同：1.枚举值是不一样的一个是NSUInteger，一个是NSInteger
-             2.如果在一个需要枚举值的地方需要多个枚举值，那么就需要用NS_OPTIONS，比如：&lt;/p&gt;
+&lt;p&gt;3.总结两者的不同：(1).枚举值是不一样的一个是NSUInteger，一个是NSInteger
+            (2).如果在一个需要枚举值的地方需要多个枚举值，那么就需要用NS_OPTIONS，比如：&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
 entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound;
 &lt;/code&gt;&lt;/pre&gt;
@@ -116,7 +116,19 @@ entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthoriza
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;update zi SET logogriph = (select mimian from zimi where zi.name = zimi.name)
 
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><summary type="html">NSNotification</summary></entry><entry><title type="html">2017-04-24 Mac小知识</title><link href="/Mac/" rel="alternate" type="text/html" title="2017-04-24 Mac小知识" /><published>2017-04-24T00:00:00+08:00</published><updated>2017-04-24T00:00:00+08:00</updated><id>/Mac</id><content type="html" xml:base="/Mac/">&lt;h1 id=&quot;1ftp服务器&quot;&gt;1.FTP服务器&lt;/h1&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;ios视图控制器的生命周期&quot;&gt;iOS视图控制器的生命周期&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;1.loadView 检测xib文件，如果没有相应的xib文件就直接返回一个空的view&lt;/li&gt;
+  &lt;li&gt;2.viewDidLoad loadView执行之后在执行viewDidLoad，而且这个方法只是执行一次，以后不会在执行。还有就是加载子控件。&lt;/li&gt;
+  &lt;li&gt;4.viewWillAppear   视图将出现在屏幕之前，马上这个视图就会被展现在屏幕上了&lt;/li&gt;
+  &lt;li&gt;5.viewDidAppear   视图已在屏幕上渲染完成&lt;/li&gt;
+  &lt;li&gt;6.viewillDisaAppear  视图将要消失&lt;/li&gt;
+  &lt;li&gt;7.viewDidDisAppear   视图已经消失&lt;/li&gt;
+  &lt;li&gt;8.viewDidUnload 该方法已经被抛弃不作解释&lt;/li&gt;
+  &lt;li&gt;9.delloc 释放对象&lt;/li&gt;
+  &lt;li&gt;10.didReceiveMemoryWarning 内存不够用的时候这个方法会释放一些不用的视图对象&lt;/li&gt;
+&lt;/ul&gt;</content><summary type="html">NSNotification</summary></entry><entry><title type="html">2017-04-24 Mac小知识</title><link href="/Mac/" rel="alternate" type="text/html" title="2017-04-24 Mac小知识" /><published>2017-04-24T00:00:00+08:00</published><updated>2017-04-24T00:00:00+08:00</updated><id>/Mac</id><content type="html" xml:base="/Mac/">&lt;h1 id=&quot;1ftp服务器&quot;&gt;1.FTP服务器&lt;/h1&gt;
 
 &lt;h3 id=&quot;开启-ftp-server&quot;&gt;开启 FTP Server&lt;/h3&gt;
 &lt;h3 id=&quot;sudo--s-launchctl-load--w-systemlibrarylaunchdaemonsftpplist&quot;&gt;sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist&lt;/h3&gt;
@@ -336,10 +348,12 @@ NSLog(@&quot;=====%@&quot;,obj);
 
 &lt;h2 id=&quot;1关于给tabbaritem设置属性&quot;&gt;1.关于给tabbarItem设置属性&lt;/h2&gt;
 &lt;h3 id=&quot;11设置图片&quot;&gt;1.1设置图片&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;childController.tabBarItem.image= [normalImageimageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;childController.tabBarItem.image= [normalImageimageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 
 childController.tabBarItem.selectedImage= [selectedImageimageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h3 id=&quot;12未选中字体颜色&quot;&gt;1.2未选中字体颜色&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;[[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:unselectColor,NSFontAttributeName:[UIFont fontWithName:foneName size:15]} forState:UIControlStateNormal];
@@ -357,9 +371,9 @@ self.window.backgroundColor = [UIColor whiteColor];
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&quot;3关于通知的注意事项&quot;&gt;3.关于通知的注意事项&lt;/h2&gt;
 
-&lt;p&gt;###3.1在主线程上发送通知&lt;/p&gt;
+&lt;h3 id=&quot;31在主线程上发送通知&quot;&gt;3.1在主线程上发送通知&lt;/h3&gt;
 
-&lt;p&gt;###3.2注册通知和移除通知一定要成对出现，比如在&lt;/p&gt;
+&lt;h3 id=&quot;32注册通知和移除通知一定要成对出现比如在&quot;&gt;3.2注册通知和移除通知一定要成对出现，比如在&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&quot;language-Objective-C&quot;&gt;//一定要成对出现，避免出现bug
 - (void)viewWillAppear:(BOOL)animated
 

@@ -44,6 +44,7 @@ comments: false
 ### 1. Bingo – 移动改变工作
 - 开发工具：Mac OS／Xcode6.4／iPhone
 - 开发语言：Objective-C
+- 项目性质：公司产品
 - 开发人员：两人合作完成
 - 开发周期：一期4个月，二期3个月
 - 项目简介：Bingo是一款基于企业内外部通讯录的移动通信软件，集商务电话、鸡毛信、多方会议、录音存储等功能于一体，旨在降低企业对内对外沟通成本，提高协作效率，为企业搭建
@@ -64,6 +65,7 @@ comments: false
 ### 2. 圈圈汉语词典
 - 开发工具：Mac OS／Xcode6.4／iPhone
 - 开发语言：Objective-C
+- 项目性质：个人项目
 - 开发人员：独立完成
 - 开发周期：2个月
 - 项目简介：简约，便捷，能够快速查找自己所有需要的字词，最新的版本可以对词语的评论，你可以对词
@@ -82,6 +84,13 @@ comments: false
 - [我](http://ac-l1vx02tc.clouddn.com/f081280bde955fbee2bf.gif)
 - [圈圈汉语词典](https://itunes.apple.com/cn/app/gui-zu-nu/id1144117036?mt=8)
 
+### 开源项目
+
+#### 高仿猎豹车联网
+- 项目的主要内容是地图导航。Objective - C 写的。依托第三方地图，这里我用的高德地图。可以下载下来看一下。
+- ![效果图](http://ac-l1vx02tc.clouddn.com/708c0c05422f88492c22.gif)
+- [项目地址](https://github.com/dslcoding/CarProject)
+-  有地图内容，所有尽量用真机调试
 ### 自我评价
 
    首先感谢您阅读我的简历。截止目前我已经工作一年多了，在平常的工作中也积累了很多的经验。

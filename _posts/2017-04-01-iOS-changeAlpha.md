@@ -10,10 +10,8 @@ categories: jekyll update
 
 # 我经常用的一种方法
 
-```Objective-C
+```
 UIColor *blockColor = [UIColor blackColor];
-    
+
 self.backgroundColor = [blockColor colorWithAlphaComponent:0.75];
 ```
-
-

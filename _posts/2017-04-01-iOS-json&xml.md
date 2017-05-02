@@ -1,4 +1,4 @@
----
+ß---
 layout: post
 title:  "Json&Xml"
 date:   2017-04-01 10:59:21 +0700
@@ -17,18 +17,18 @@ categories: jekyll update
 ### 解析json数据 用苹果官方给出的NSJSONSerialization（记得是iOS5的） 解析方式是性能最优越的，复杂程度还可以。
 ```Objective-C
     NSURLSessionDataTask *tast = [[NSURLSession sharedSession]dataTaskWithURL:[NSURL URLWithString:@"https://api.douban.com/v2/movie/subject/25881786"] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        
-        
-        
+
+
+
         //最外层是个字典直接用字典接收。如果是数组就用数组
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-        
+
          NSLog(@"=====%@",[dic objectForKey:@"alt"]);
          //成功输出=====https://movie.douban.com/subject/25881786/===具体的自己代码测试啊
-        
-        
+
+
     }];
-    
+
     [tast resume];
 
 ```
@@ -38,9 +38,9 @@ categories: jekyll update
                            @"large":@"https://img3.doubanio.com/view/movie_poster_cover/lpst/public/p2276855500.jpg",
                            @"medium":@"https://img3.doubanio.com/view/movie_poster_cover/spst/public/p2276855500.jpg"
                            };
-    
+
     NSData * data = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
-    
+
     NSLog(@"===%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
 
 ```
@@ -70,17 +70,17 @@ categories: jekyll update
 ### 2.2 Viewcontrol操作
 ```Objective-C
 - (void)xml{
-    
+
     //声明一个数组，用来存放解析的数据
     self.dataArray = [[NSMutableArray alloc]init];
-    
+
     NSString * path = [[NSBundle mainBundle]pathForResource:@"DSL.xml" ofType:nil];
-    
+
 
     NSXMLParser * xmlParser = [[NSXMLParser alloc]initWithData:[NSData dataWithContentsOfFile:path]];
-    
+
     xmlParser.delegate = self;
-    
+
     [xmlParser parse];
 
 
@@ -93,7 +93,7 @@ categories: jekyll update
 {
 
     NSLog(@"parse start");
-    
+
 
 }
 
@@ -101,14 +101,14 @@ categories: jekyll update
 - (void)parserDidEndDocument:(NSXMLParser *)parser
 {
     NSLog(@"parser end ===%@",self.dataArray);
-    
+
     [self.dataArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-       
+
         DSLModel *model = (DSLModel*)obj;
-        
+
         NSLog(@"====%@===%@==%@",model.proID,model.pinyin,model.proName);
-        
-        
+
+
     }];
 
 }
@@ -117,13 +117,13 @@ categories: jekyll update
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary<NSString *,NSString *> *)attributeDict{
 
     self.startTagFlag = elementName;
-    
+
     if ([elementName isEqualToString:@"result"]) {
-        
+
         self.model = [[DSLModel alloc]init];
-        
+
         [self.dataArray addObject:self.model];
-        
+
     }
 
 
@@ -134,21 +134,21 @@ categories: jekyll update
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
 
     string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    
+
     if ([self.startTagFlag isEqualToString:@"proID"]) {
-        
+
         [self.model setProID:string];
     }
-    
+
     if ([self.startTagFlag isEqualToString:@"proName"]) {
-        
+
         [self.model setProName:string];
-        
+
     }
 
-    
+
     if ([self.startTagFlag isEqualToString:@"pinyin"]) {
-        
+
         [self.model setPinyin:string];
     }
 
@@ -166,65 +166,3 @@ categories: jekyll update
 [相关demo](https://github.com/dslcoding/JsonXml)
 
 没有啦，完啦。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
