@@ -78,7 +78,6 @@ comments: false
 
 ### 以下是我负责的界面
 ![搜索界面](http://ac-l1vx02tc.clouddn.com/f6c268ecd9dbf8ae7cc5.gif)
-
 - [首页](http://ac-l1vX02tC.clouddn.com/f6c268ecd9dbf8ae7cc5.gif)
 - [最新](http://ac-l1vx02tc.clouddn.com/5b160e5e7a308dc023ea.gif)
 - [我](http://ac-l1vx02tc.clouddn.com/f081280bde955fbee2bf.gif)
@@ -91,11 +90,12 @@ comments: false
 - ![效果图](http://ac-l1vx02tc.clouddn.com/708c0c05422f88492c22.gif)
 - [项目地址](https://github.com/dslcoding/CarProject)
 -  有地图内容，所有尽量用真机调试
+
 ### 自我评价
 
-   首先感谢您阅读我的简历。截止目前我已经工作一年多了，在平常的工作中也积累了很多的经验。
+ 首先感谢您阅读我的简历。截止目前我已经工作一年多了，在平常的工作中也积累了很多的经验。
 喜欢工作强度大的工作，喜欢自觉加班。喜欢提前完成分配的任务。
-   个人乐观健谈，风趣幽默。喜欢与人交流，善于钻研问题。对待工作热情，喜欢独立完成分析和解决工作
+ 个人乐观健谈，风趣幽默。喜欢与人交流，善于钻研问题。对待工作热情，喜欢独立完成分析和解决工作
 问题，具有良好的手动能力。为人友好，能够承受较大的压力。对软件开发这一行有着巨大的热情。能在岗位
 上体现出自己的价值，期待共同走向成功！
 
