@@ -25,13 +25,13 @@ NSString* DSLStr = [[[NSString alloc] initWithString:@"tutuge"] autorelease];
 //DSLStr release
 ```
 上面表达的意思是对象创建完之后顺便在发送一个autorelease的消息，然后NSAutoreleasePool结束的时候就释放了。
-    
+
 ## 在ARC的@autoreleasepool
 
 ```Objective-C
 NSArray *urls = <# An array of file URLs #>;
 for (NSURL *url in urls) {
- 
+
     @autoreleasepool {
         NSError *error;
         NSString *fileContents = [NSString stringWithContentsOfURL:url
@@ -48,6 +48,29 @@ for (NSURL *url in urls) {
 - 长时间在后台的任务
 上面的实例就是用到了@autoreleasepool的循环，创建大量的临时对象。利用@autorelease可以及时对内存进行释放。
 
+## MRC情况下的引用计数的增加
+1. 如果定义一个属性，属性用strong，retain，copy修饰的，在使用set***或者是点语法的时候引用计数都会增加的,原因是：旧对象与新对象不是同一个对象，当一个对象换了当前它所使用的对象的时候，就要让被使用的对象release一次，方法是在set方法中，让旧对象release（就是在换对象的时候让被换掉的就对象release一次，被使用的新对象retain一次）。如果新旧对象是一样的，就要加判断如果是一样的话，就不操作，不一样的话就操作
+2. alloc，new，[mutabcopy]copy,
+
+## 内存泄漏
+1. 第一种是对象没有被释放，但是不能被引用了。
+2. 第二种是内存的无限增长，不能被释放。
+
+## 内存泄漏的解决方法
+1. 使用NSZombieEnabled，点击Product--> Scheme -->Edit Scheme 在Run选项的Diagnositics中设置Enable Zombie Objects。然后Close。再次运行，可能会出现一些问题提示
+2. 使用instruments中的Zombies这个工具
+3. 使用静态内存分析工具，Product→Analyze，速度快，但是 准确率较低
+- 内存泄漏隐患提示：Potential Leak of an object allocated on line ……
+- 数据赋值隐患提示：The left operand of …… is a garbage value;
+- 对象引用隐患提示：Reference-Counted object is used after it is released;
+
+## 使用内存注意的地方
+1. 使用频率高且小的图片用imageNamed，又缓存
+2. 大图片用initWithContentsOfFile，没有缓存，用完就消失
+
+## 内存方面的专业术语
+1. 内存泄漏，内存一直被占着，不能被释放
+2. 内存益处，内存不够用
+3. 内存泄漏会导致内存益处
 
 没有啦，完啦
-
